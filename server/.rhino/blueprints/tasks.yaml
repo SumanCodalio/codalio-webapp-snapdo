@@ -1,0 +1,60 @@
+model: Task
+slug: tasks
+table: tasks
+
+options:
+  belongs_to_organization: true
+  soft_deletes: true
+  audit_trail: false
+  pagination: true
+  per_page: 50
+
+columns:
+  title:
+    type: string
+    nullable: false
+    filterable: true
+    sortable: true
+    searchable: true
+  description:
+    type: text
+    nullable: true
+    searchable: true
+  status:
+    type: string
+    default: "pending"
+    filterable: true
+    sortable: true
+  due_at:
+    type: datetime
+    nullable: true
+    filterable: true
+    sortable: true
+  completed_at:
+    type: datetime
+    nullable: true
+    filterable: true
+    sortable: true
+  raw_transcript:
+    type: text
+    nullable: true
+  source:
+    type: string
+    default: "text"
+    filterable: true
+
+relationships:
+  - type: belongsTo
+    model: Organization
+
+permissions:
+  end_user:
+    actions: [index, show, store, update, destroy]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"
+  admin:
+    actions: [index, show, store, update, destroy]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"

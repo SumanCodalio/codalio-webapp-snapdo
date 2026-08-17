@@ -1,0 +1,46 @@
+{
+  "project_type": "rhino",
+  "ruby_version": "3.x",
+  "node_version": "20.x",
+  "models": [
+    { "name": "Task", "file": "server/app/models/task.rb", "table": "tasks" },
+    { "name": "UserSetting", "file": "server/app/models/user_setting.rb", "table": "user_settings" },
+    { "name": "VoiceIntegration", "file": "server/app/models/voice_integration.rb", "table": "voice_integrations" },
+    { "name": "VoiceCommandLog", "file": "server/app/models/voice_command_log.rb", "table": "voice_command_logs" }
+  ],
+  "controllers": [
+    "server/app/controllers/api/tasks_controller.rb",
+    "server/app/controllers/api/user_settings_controller.rb",
+    "server/app/controllers/api/voice_integrations_controller.rb",
+    "server/app/controllers/api/voice_command_logs_controller.rb",
+    "server/app/controllers/api/v1/voice_captures_controller.rb"
+  ],
+  "frontend_routes": [
+    "client/src/routes/custom.jsx"
+  ],
+  "frontend_components": [
+    "client/src/components/tasks/TodayTaskStreamPage.tsx",
+    "client/src/components/tasks/FocusTaskCardPage.tsx",
+    "client/src/components/tasks/UpcomingTaskTimelinePage.tsx",
+    "client/src/components/tasks/ArchiveTaskListPage.tsx",
+    "client/src/components/settings/SettingsMenuPage.tsx",
+    "client/src/components/settings/VoiceIntegrationSettingsPage.tsx",
+    "client/src/components/settings/ThemePreferencesPage.tsx",
+    "client/src/components/auth/SignupFormPage.tsx",
+    "client/src/components/onboarding/OnboardingFlowPage.tsx",
+    "client/src/components/dashboard/PersonalMetricsPage.tsx",
+    "client/src/components/voice/VoiceCaptureApiDocPage.tsx",
+    "client/src/components/admin/AdminLoginFormPage.tsx",
+    "client/src/components/admin/AdminAnalyticsPage.tsx",
+    "client/src/components/admin/AdminFeatureFlagsPage.tsx",
+    "client/src/contexts/AppOwnerProvider.jsx"
+  ],
+  "migrations": [],
+  "tests": [],
+  "key_config_files": [
+    "server/config/initializers/rhino.rb",
+    "server/config/routes.rb",
+    "client/src/routes/custom.jsx"
+  ],
+  "updated_at": "2026-08-17T22:30:00Z"
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "title": "1. Inspect design root and workspace environment",
+    "notes": "Verified prototype files, ui-handoff.json, static.js OpenAPI schema, and workspace configuration",
+    "status": "done"
+  },
+  {
+    "title": "2. Setup styling and design tokens",
+    "notes": "Reconciled Tailwind CSS and global styling configuration",
+    "status": "done"
+  },
+  {
+    "title": "3. Vendor prototype UI files into client workspace",
+    "notes": "Vendored prototype UI files into client/src",
+    "status": "done"
+  },
+  {
+    "title": "4. Implement flat routes & owner context provider",
+    "notes": "Implemented AppOwnerProvider for flat routing owner context",
+    "status": "done"
+  },
+  {
+    "title": "5. Wire page data contracts, action contracts, and auth",
+    "notes": "Wired page data contracts, action contracts, and auth endpoints",
+    "status": "done"
+  },
+  {
+    "title": "6. Configure routes and cleanup conflicting router artifacts",
+    "notes": "Configured react-router-dom with catch-all fallback and clean build",
+    "status": "done"
+  },
+  {
+    "title": "7. Write Cypress E2E critical-path tests",
+    "notes": "Authored Cypress E2E specs in client/cypress/e2e/",
+    "status": "done"
+  },
+  {
+    "title": "8. Run Vite build verification & final DoD check",
+    "notes": "Verified client build with npm run build and Cypress binary verification",
+    "status": "done"
+  }
+]

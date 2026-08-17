@@ -1,0 +1,7 @@
+roles:
+  end_user:
+    name: End User
+    description: "Standard task management user."
+  admin:
+    name: Admin
+    description: "Platform administrator with telemetry and settings access."

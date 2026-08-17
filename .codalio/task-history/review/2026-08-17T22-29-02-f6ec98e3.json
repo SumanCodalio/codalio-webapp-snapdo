@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Read inputs",
+    "notes": "Read .codalio/acceptance-criteria.json, .rhino-plan.md, and PRD",
+    "status": "done"
+  },
+  {
+    "title": "Inventory the suites",
+    "notes": "Discover backend tests and Cypress spec files",
+    "status": "done"
+  },
+  {
+    "title": "Run the backend suite",
+    "notes": "Execute Rails minitest suite and capture log",
+    "status": "done"
+  },
+  {
+    "title": "Run Cypress",
+    "notes": "Execute Cypress tests if present and capture log",
+    "status": "done"
+  },
+  {
+    "title": "Compute coverage",
+    "notes": "Check SimpleCov or Cypress code coverage results",
+    "status": "done"
+  },
+  {
+    "title": "Map results to criteria",
+    "notes": "Map test pass/fail results to AC items",
+    "status": "done"
+  },
+  {
+    "title": "Save the report",
+    "notes": "Write .rhino-review.md and update acceptance-criteria.json",
+    "status": "done"
+  }
+]

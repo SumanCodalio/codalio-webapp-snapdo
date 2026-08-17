@@ -1,0 +1,1131 @@
+{
+  "pages": [
+    {
+      "name": "Focus",
+      "route": "/focus",
+      "locked": false,
+      "sections": [
+        {
+          "title": null,
+          "images": null,
+          "spacing": "spacious",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "FocusTaskCard",
+              "props": {
+                "mode": "single-task",
+                "icons": [
+                  "Check",
+                  "Pause",
+                  "X",
+                  "TimerReset"
+                ],
+                "show_exit": true,
+                "show_time": true
+              },
+              "images": null,
+              "styling": {
+                "card": "w-full border-border bg-card shadow-none",
+                "container": "mx-auto flex min-h-[calc(100vh-4rem)] max-w-xl items-center px-5"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "tasks",
+              "event_handlers": [
+                "onComplete",
+                "onPause",
+                "onExitFocus"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Button",
+                "Progress"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Focus",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "Upcoming",
+      "route": "/upcoming",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Upcoming",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "UpcomingTaskTimeline",
+              "props": {
+                "icons": [
+                  "CalendarDays",
+                  "ChevronRight",
+                  "Clock3"
+                ],
+                "groups": [
+                  "Tomorrow",
+                  "This week",
+                  "Later"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "row": "min-h-14 border-b border-border/70 py-4",
+                "container": "mx-auto w-full max-w-2xl px-4 py-6"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "tasks",
+              "event_handlers": [
+                "onReschedule",
+                "onOpenFocus",
+                "onFilterChange"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Tabs",
+                "Button",
+                "Badge",
+                "Separator"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Upcoming",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "Archive",
+      "route": "/archive",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Completed",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "ArchiveTaskList",
+              "props": {
+                "icons": [
+                  "Search",
+                  "RotateCcw",
+                  "CheckCircle2"
+                ],
+                "search_placeholder": "Search completed tasks"
+              },
+              "images": null,
+              "styling": {
+                "row": "min-h-14 border-b border-border/70 py-4 text-muted-foreground",
+                "container": "mx-auto w-full max-w-2xl px-4 py-6"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "tasks",
+              "event_handlers": [
+                "onSearch",
+                "onRestore"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Input",
+                "Button",
+                "Badge",
+                "Separator"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Archive",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "Settings",
+      "route": "/settings",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Settings",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "SettingsMenu",
+              "props": {
+                "icons": [
+                  "ChevronRight",
+                  "UserRound"
+                ],
+                "items": [
+                  {
+                    "icon": "MoonStar",
+                    "label": "Appearance & haptics",
+                    "route": "/settings/theme"
+                  },
+                  {
+                    "icon": "Mic",
+                    "label": "Voice assistants",
+                    "route": "/settings/voice"
+                  }
+                ]
+              },
+              "images": null,
+              "styling": {
+                "card": "overflow-hidden border-border shadow-none",
+                "container": "mx-auto w-full max-w-xl px-4 py-6"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "user_settings",
+              "event_handlers": [
+                "onNavigate"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Button",
+                "Separator"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Settings",
+      "required_imports": [
+        "react-router-dom",
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "SettingsVoice",
+      "route": "/settings/voice",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Voice assistants",
+          "images": null,
+          "spacing": "loose",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "VoiceIntegrationSettings",
+              "props": {
+                "icons": [
+                  "Mic",
+                  "ExternalLink",
+                  "CheckCircle2"
+                ],
+                "providers": [
+                  "Siri Shortcuts",
+                  "Google Assistant"
+                ],
+                "shortcut_example": "Add a task to SnapDo"
+              },
+              "images": null,
+              "styling": {
+                "card": "border-border shadow-none",
+                "container": "mx-auto w-full max-w-xl px-4 py-6"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "voice_integrations",
+              "event_handlers": [
+                "onToggleIntegration",
+                "onOpenSetup",
+                "onTestVoiceCommand"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Switch",
+                "Button",
+                "Badge"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Voice assistants",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "SettingsTheme",
+      "route": "/settings/theme",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Appearance & haptics",
+          "images": null,
+          "spacing": "loose",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "ThemePreferences",
+              "props": {
+                "icons": [
+                  "Sun",
+                  "Moon",
+                  "Vibrate"
+                ],
+                "haptic_range": [
+                  0,
+                  100
+                ],
+                "theme_options": [
+                  "System",
+                  "Light",
+                  "OLED black"
+                ],
+                "font_scale_range": [
+                  80,
+                  140
+                ]
+              },
+              "images": null,
+              "styling": {
+                "card": "border-border shadow-none",
+                "container": "mx-auto w-full max-w-xl px-4 py-6"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "user_settings",
+              "event_handlers": [
+                "onThemeChange",
+                "onFontScaleChange",
+                "onHapticChange"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Switch",
+                "RadioGroup",
+                "Slider",
+                "Label"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Appearance & haptics",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "Signup",
+      "route": "/signup",
+      "locked": false,
+      "sections": [
+        {
+          "title": null,
+          "images": null,
+          "spacing": "spacious",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "SignupForm",
+              "props": {
+                "icons": [
+                  "ArrowRight"
+                ],
+                "title": "Keep every thought in motion",
+                "fields": [
+                  "name",
+                  "email",
+                  "password"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "card": "w-full border-border shadow-none",
+                "container": "mx-auto flex min-h-[calc(100vh-4rem)] max-w-md items-center px-4"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onChange",
+                "onSubmit"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Input",
+                "Label",
+                "Button",
+                "Checkbox"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Create your account",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "Onboarding",
+      "route": "/onboarding",
+      "locked": false,
+      "sections": [
+        {
+          "title": null,
+          "images": null,
+          "spacing": "spacious",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "OnboardingFlow",
+              "props": {
+                "icons": [
+                  "Sparkles",
+                  "Mic",
+                  "ArrowRight"
+                ],
+                "steps": [
+                  "Choose your rhythm",
+                  "Enable voice capture",
+                  "Try a task"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "card": "w-full border-border shadow-none",
+                "container": "mx-auto flex min-h-[calc(100vh-4rem)] max-w-xl items-center px-4"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "user_settings",
+              "event_handlers": [
+                "onNext",
+                "onBack",
+                "onComplete",
+                "onToggleVoice"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Button",
+                "Progress",
+                "Switch"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Set up SnapDo",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "Dashboard",
+      "route": "/dashboard",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Your momentum",
+          "images": null,
+          "spacing": "loose",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "PersonalMetrics",
+              "props": {
+                "icons": [
+                  "CheckCircle2",
+                  "Flame",
+                  "Inbox"
+                ],
+                "metrics": [
+                  "Tasks completed",
+                  "Capture streak",
+                  "Inbox to zero"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "grid": "grid gap-4 sm:grid-cols-3",
+                "container": "mx-auto w-full max-w-5xl px-4 py-6"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "tasks",
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Progress",
+                "Badge"
+              ]
+            },
+            {
+              "name": "RecentCaptureActivity",
+              "props": {
+                "icons": [
+                  "Mic",
+                  "ArrowUpRight"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "card": "border-border shadow-none",
+                "container": "mx-auto w-full max-w-5xl px-4"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "tasks",
+              "event_handlers": [
+                "onNavigate"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Button",
+                "Separator"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Dashboard",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "VoiceCapture",
+      "route": "/api/v1/voice-capture",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Voice capture",
+          "images": null,
+          "spacing": "loose",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "VoiceCaptureConsole",
+              "props": {
+                "icons": [
+                  "Mic",
+                  "Play",
+                  "CheckCircle2"
+                ],
+                "title": "Test an intent",
+                "placeholder": "e.g. Remind me to send the brief Friday at 9am"
+              },
+              "images": null,
+              "styling": {
+                "card": "border-border shadow-none",
+                "container": "mx-auto w-full max-w-3xl px-4 py-6"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "voice_command_logs",
+              "event_handlers": [
+                "onChange",
+                "onSubmitCapture"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Textarea",
+                "Button",
+                "Badge"
+              ]
+            },
+            {
+              "name": "VoiceCommandLog",
+              "props": {
+                "columns": [
+                  "Utterance",
+                  "Parsed task",
+                  "Status",
+                  "Time"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "card": "border-border shadow-none",
+                "container": "mx-auto w-full max-w-3xl px-4"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "voice_command_logs",
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Table",
+                "Badge"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Voice Capture API",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "AdminLogin",
+      "route": "/admin/login",
+      "locked": false,
+      "sections": [
+        {
+          "title": null,
+          "images": null,
+          "spacing": "spacious",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "AdminLoginForm",
+              "props": {
+                "icons": [
+                  "ShieldCheck",
+                  "ArrowRight"
+                ],
+                "title": "Admin access",
+                "fields": [
+                  "work email",
+                  "password"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "card": "w-full border-border shadow-none",
+                "container": "mx-auto flex min-h-[calc(100vh-4rem)] max-w-md items-center px-4"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onChange",
+                "onSubmit"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Input",
+                "Label",
+                "Button"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Admin login",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "AdminAnalytics",
+      "route": "/admin/analytics",
+      "locked": false,
+      "sections": [
+        {
+          "title": "System health",
+          "images": null,
+          "spacing": "loose",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "TelemetryMetrics",
+              "props": {
+                "icons": [
+                  "Activity",
+                  "AudioLines",
+                  "Gauge",
+                  "CloudOff"
+                ],
+                "metrics": [
+                  "Active sessions",
+                  "Voice parse accuracy",
+                  "Median sync latency",
+                  "Offline queue"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "grid": "grid gap-4 sm:grid-cols-2 xl:grid-cols-4",
+                "container": "mx-auto w-full max-w-6xl px-4 py-6"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "voice_command_logs",
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Badge"
+              ]
+            },
+            {
+              "name": "VoiceAccuracyLog",
+              "props": {
+                "icons": [
+                  "Download"
+                ],
+                "columns": [
+                  "Provider",
+                  "Utterance",
+                  "Confidence",
+                  "Outcome"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "card": "border-border shadow-none",
+                "container": "mx-auto w-full max-w-6xl px-4"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "voice_command_logs",
+              "event_handlers": [
+                "onExport",
+                "onFilterChange"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Table",
+                "Badge",
+                "Button"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Admin analytics",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "AdminFeatureFlags",
+      "route": "/admin/feature-flags",
+      "locked": false,
+      "sections": [
+        {
+          "title": "Feature flags",
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "FeatureFlagManager",
+              "props": {
+                "flags": [
+                  "New voice parser",
+                  "Haptic completion",
+                  "Focus mode v2",
+                  "Offline sync diagnostics"
+                ],
+                "icons": [
+                  "ToggleRight",
+                  "RotateCcw"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "card": "border-border shadow-none",
+                "container": "mx-auto w-full max-w-4xl px-4 py-6"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "organizations",
+              "event_handlers": [
+                "onToggleFlag",
+                "onResetFlag"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardHeader",
+                "CardContent",
+                "Switch",
+                "Badge",
+                "Button",
+                "Separator"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Feature flags",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    },
+    {
+      "name": "Landing",
+      "route": "/",
+      "locked": false,
+      "sections": [
+        {
+          "title": null,
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": "hero",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "TodayTaskStream",
+              "props": {
+                "icons": [
+                  "Check",
+                  "Clock3",
+                  "MoreHorizontal"
+                ],
+                "title": "Today",
+                "gestures": {
+                  "pull_down": "search_or_new",
+                  "long_press": "focus",
+                  "swipe_left": "defer",
+                  "swipe_right": "complete"
+                },
+                "empty_state": "Clear the list. Capture the next thing."
+              },
+              "images": null,
+              "styling": {
+                "task": "min-h-14 border-b border-border/70 py-4",
+                "container": "mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-2xl flex-col px-4 pb-28 pt-6"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "tasks",
+              "event_handlers": [
+                "onComplete",
+                "onDefer",
+                "onOpenFocus",
+                "onPullToSearch"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Button",
+                "Badge",
+                "Separator"
+              ]
+            },
+            {
+              "name": "PersistentQuickCapture",
+              "props": {
+                "icons": [
+                  "Mic",
+                  "ArrowUp"
+                ],
+                "placeholder": "Add a task\u2026 \u201cCall Maya tomorrow at 5pm\u201d",
+                "submit_label": "Save",
+                "voice_button": true,
+                "natural_language_hint": "Dates and priority are understood automatically"
+              },
+              "images": null,
+              "styling": {
+                "input": "min-h-12 rounded-xl bg-card text-base",
+                "container": "fixed inset-x-0 bottom-0 z-30 mx-auto max-w-2xl border-t border-border bg-background/95 p-4 backdrop-blur"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "tasks",
+              "event_handlers": [
+                "onChange",
+                "onSubmit",
+                "onVoiceCapture"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Input",
+                "Button",
+                "Tooltip"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Today",
+      "required_imports": [
+        "lucide-react"
+      ],
+      "has_dynamic_params": false
+    }
+  ],
+  "layout": {
+    "name": "Layout",
+    "props": {
+      "header": "compact context header with searchable command trigger and settings gear",
+      "content": "edge-to-edge mobile canvas; centered max-width content on desktop",
+      "project_name": "SnapDo",
+      "mobile_behavior": "Sheet navigation; task views retain edge-swipe gesture affordances",
+      "navigation_style": "gesture-first edge-to-edge task app with compact desktop rail",
+      "secondary_routes": [
+        {
+          "label": "Upcoming",
+          "route": "/upcoming"
+        },
+        {
+          "label": "Archive",
+          "route": "/archive"
+        },
+        {
+          "label": "Focus",
+          "route": "/focus"
+        },
+        {
+          "label": "Settings",
+          "route": "/settings"
+        }
+      ],
+      "primary_navigation": [
+        {
+          "icon": "CheckSquare",
+          "label": "Today",
+          "route": "/"
+        },
+        {
+          "icon": "UserPlus",
+          "label": "Sign up",
+          "route": "/signup"
+        },
+        {
+          "icon": "Sparkles",
+          "label": "Onboarding",
+          "route": "/onboarding"
+        },
+        {
+          "icon": "LayoutDashboard",
+          "label": "Dashboard",
+          "route": "/dashboard"
+        },
+        {
+          "icon": "Mic",
+          "label": "Voice API",
+          "route": "/api/v1/voice-capture"
+        },
+        {
+          "icon": "ShieldCheck",
+          "label": "Admin login",
+          "route": "/admin/login"
+        },
+        {
+          "icon": "ChartNoAxesCombined",
+          "label": "Analytics",
+          "route": "/admin/analytics"
+        },
+        {
+          "icon": "ToggleRight",
+          "label": "Feature flags",
+          "route": "/admin/feature-flags"
+        }
+      ]
+    },
+    "styling": {
+      "main": "min-w-0 flex-1",
+      "shell": "min-h-screen bg-background text-foreground",
+      "header": "sticky top-0 z-20 border-b border-border/70 bg-background/90 backdrop-blur",
+      "sidebar": "hidden md:flex border-r border-border bg-background"
+    },
+    "has_state": true,
+    "image_urls": null,
+    "data_source": null,
+    "event_handlers": [
+      "onMenuToggle",
+      "onCommandSearch",
+      "onNavigate"
+    ],
+    "image_keywords": null,
+    "shadcn_components": [
+      "Sidebar",
+      "Sheet",
+      "Button",
+      "Tooltip",
+      "Breadcrumb"
+    ]
+  },
+  "design_notes": null,
+  "project_name": "SnapDo",
+  "design_tokens": {
+    "dark": {
+      "card": "#0C0C0C",
+      "ring": "#5EEAD4",
+      "input": "#292929",
+      "muted": "#171717",
+      "accent": "#134E4A",
+      "border": "#292929",
+      "radius": "0.75rem",
+      "primary": "#2DD4BF",
+      "secondary": "#1C1C1C",
+      "background": "#000000",
+      "foreground": "#F5F5F4",
+      "destructive": "#F87171",
+      "card_foreground": "#F5F5F4",
+      "muted_foreground": "#A8A29E",
+      "accent_foreground": "#CCFBF1",
+      "primary_foreground": "#042F2E",
+      "secondary_foreground": "#E7E5E4",
+      "destructive_foreground": "#450A0A"
+    },
+    "light": {
+      "card": "#FFFFFF",
+      "ring": "#14B8A6",
+      "input": "#E7E5E4",
+      "muted": "#F5F5F4",
+      "accent": "#CCFBF1",
+      "border": "#E7E5E4",
+      "radius": "0.75rem",
+      "primary": "#0F766E",
+      "secondary": "#F5F5F4",
+      "background": "#FAFAF9",
+      "foreground": "#1C1917",
+      "destructive": "#DC2626",
+      "card_foreground": "#1C1917",
+      "muted_foreground": "#78716C",
+      "accent_foreground": "#134E4A",
+      "primary_foreground": "#F0FDFA",
+      "secondary_foreground": "#292524",
+      "destructive_foreground": "#FEF2F2"
+    },
+    "gradients": null
+  },
+  "layout_archetype": "dashboard",
+  "shared_components": [
+    {
+      "name": "QuickCaptureButton",
+      "props": {
+        "icon": "Mic",
+        "aria_label": "Capture a task by voice"
+      },
+      "images": null,
+      "styling": {
+        "button": "size-12 rounded-full bg-primary text-primary-foreground shadow-sm"
+      },
+      "has_state": true,
+      "image_urls": null,
+      "data_source": null,
+      "event_handlers": [
+        "onVoiceCapture"
+      ],
+      "image_keywords": null,
+      "shadcn_components": [
+        "Button",
+        "Tooltip"
+      ]
+    },
+    {
+      "name": "TaskRow",
+      "props": {
+        "icons": [
+          "Check",
+          "Clock3",
+          "GripVertical"
+        ],
+        "gestures": {
+          "swipe_left": "defer",
+          "swipe_right": "complete"
+        }
+      },
+      "images": null,
+      "styling": {
+        "root": "group flex min-h-14 items-center gap-3 border-b border-border/70 py-3",
+        "completed": "text-muted-foreground line-through"
+      },
+      "has_state": true,
+      "image_urls": null,
+      "data_source": "tasks",
+      "event_handlers": [
+        "onComplete",
+        "onDefer",
+        "onOpenFocus"
+      ],
+      "image_keywords": null,
+      "shadcn_components": [
+        "Button",
+        "Badge"
+      ]
+    }
+  ]
+}

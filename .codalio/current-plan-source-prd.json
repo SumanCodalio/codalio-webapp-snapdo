@@ -1,0 +1,399 @@
+{
+  "name": "SnapDo",
+  "elevator_pitch": "For busy individuals overwhelmed by complex task managers, SnapDo is an ultra-minimalist task app that captures thoughts in milliseconds. Unlike traditional apps filled with bloated menus and setup screens, SnapDo provides zero-friction instant text input paired with seamless hands-free Siri and Google Assistant integration, ensuring tasks are captured the instant they arise.",
+  "problem_statement": "Traditional task management apps are bloated with features, nested folders, and multi-step creation modal dialogs. This operational friction causes users to lose focus, delay capturing urgent tasks, or abandon task tracking altogether when on the go.",
+  "solution": "SnapDo streamlines task management into an ultra-minimalist, single-screen interface optimized for sub-second capture. By combining persistent quick-entry text input with hands-free voice shortcuts powered by Siri and Google Assistant integrations, users effortlessly record, view, and complete tasks without breaking their workflow.",
+  "vision": "To build the world's most responsive and frictionless personal capture interface, seamlessly bridging human thought to completed action across every mobile and voice platform.",
+  "competitors": "1. Todoist: Deep features and multi-platform sync, but higher setup friction and complex UI.\n2. Apple Reminders: Strong Siri integration, but lacks cross-platform parity with Google Assistant.\n3. Things 3: Beautiful minimalism, but restricted to Apple ecosystem and lacks instant background voice triggers.",
+  "success_metrics": "1. Average task capture completion time under 1.5 seconds from app launch or voice shortcut trigger.\n2. 30-day user retention rate > 35%.\n3. > 40% of total created tasks submitted hands-free via voice assistant shortcuts.\n4. Voice command parsing accuracy > 98%.",
+  "design_principles": "# Core Design Philosophy & Guidelines\n\n### 1. Zero-Friction Capture First\nEvery design decision prioritizes getting thoughts into the app in under 2 seconds. The app opens directly with an active input affordance. Natural language processing parses dates, times, and priority tags on the fly, eliminating the need for modal popups, date pickers, or drop-down menus.\n\n### 2. Extreme Visual Minimalism & OLED Dark Mode\nInterface chrome is minimized or hidden. Content *is* the interface. Crisp typography hierarchy, generous touch padding, and pure OLED black dark mode options minimize cognitive load and visual fatigue during day and night usage.\n\n### 3. Gesture-First Ergonomics\nAll primary list operations rely on intuitive fluid gestures:\n- **Swipe Right**: Complete task with satisfying micro-animation and haptic trigger.\n- **Swipe Left**: Defer or schedule task for tomorrow/later.\n- **Pull Down**: Trigger instant search or create new task top-of-list.\n- **Pinch In / Long Press**: Enter distraction-free Focus Mode.\n\n### 4. Tactile & Motion Feedback\nSubtle custom haptics complement visual transitions. Completing a task produces an intentional, lightweight tactile response that builds micro-reward momentum without visual clutter.\n\n### 5. Native Voice Integration (Siri & Google Assistant)\nVoice interactions are treated as first-class input mechanisms. Siri Shortcuts and Google Assistant integrations funnel voice capture directly into the primary task stream without forcing app launches or multi-step confirmation screens.",
+  "sitemap": "- Today's Task List (/) - Main minimalist single-stream list for instant capture and gesture triage\n  - Focus Mode (/focus) - Distraction-free single task display with timer and minimal interface\n  - Upcoming Tasks (/upcoming) - Scheduled and deferred tasks grouped by date\n  - Task Archive (/archive) - History of completed tasks and quick search\n  - Settings (/settings) - Preferences, theme, and voice assistant integration settings\n    - Voice Assistant Setup (/settings/voice) - Siri Shortcuts and Google Assistant command setup\n    - Theme & Ergonomics (/settings/theme) - OLED true-dark mode, font sizing, and haptic intensity controls\n- Sign Up (/signup) - User registration and authentication\n- Onboarding (/onboarding) - Initial setup wizard for voice shortcuts\n- Dashboard (/dashboard) - Main task dashboard\n- Voice Capture API (/api/v1/voice-capture) - API endpoint for voice assistant integration\n- Admin Login (/admin/login) - Admin authentication\n- Admin Analytics (/admin/analytics) - Platform monitoring and telemetry\n- Admin Feature Flags (/admin/feature-flags) - Manage experimental features",
+  "navigation_design": "# Navigation Architecture & Interaction Rules\n\n## 1. Overview\nThe application uses a gesture-centric, edge-to-edge layout with zero static top headers or heavy bottom navigation bars. Secondary views are accessible via fluid horizontal and vertical swipes from the main view (`/`).\n\n## 2. Role-Based Navigation Specification\n\n### Role: User / Guest\n- **Default Entry Point (`/`)**: Opening the app lands immediately on Today's Task List with active input affordance.\n- **Gesture Navigation**:\n  - **Pull Down from top**: Opens quick search or creates a new top task.\n  - **Swipe Left**: Navigates to `/upcoming` (Scheduled & Deferred Tasks).\n  - **Swipe Right**: Navigates to `/archive` (Completed Task History).\n  - **Pinch / Tap Task**: Enters `/focus` (Distraction-Free Single-Task Focus Card).\n  - **Top Corner Gear Icon / Swipe Down Secondary**: Opens `/settings` (Theme & Voice Assistant Setup).\n- **Sub-View Navigation**:\n  - `/settings/voice`: Siri Shortcuts configuration and Google Assistant trigger mappings.\n  - `/settings/theme`: OLED true-dark mode toggle, font scaling, and haptic feedback strength.\n\n### Role: System (Siri / Google Assistant Integration)\n- Dynamic deep links: Voice shortcuts invoke background API sync or deep-link directly into `/` or `/focus`.\n\n## 3. Dark Mode & Visual Ergonomics\n- **OLED True Dark**: #000000 background option for minimal battery consumption and glare reduction.\n- **Dynamic Type Support**: Supports system-level text sizing while maintaining gesture target integrity (minimum 48px touch targets).\n- **Fluid Motion**: Spring-physics transitions for edge swipes with low-latency responsiveness (<16ms frame target).",
+  "key_features": [
+    {
+      "feature_name": "Instant Voice & Text Task Capture",
+      "feature_description": "Persistent quick-input text field at the bottom of the screen with natural language date parsing (e.g., 'Buy groceries tomorrow at 5pm') and instant single-tap saving."
+    },
+    {
+      "feature_name": "Siri & Google Assistant Integration",
+      "feature_description": "Native voice intent handlers for Apple Siri Shortcuts and Google Assistant App Actions, enabling hands-free task creation without unlocking or launching the app."
+    },
+    {
+      "feature_name": "Distraction-Free Minimalist UI & Gestures",
+      "feature_description": "A ultra-clean single-list interface with fluid gesture interactions (swipe right to complete, swipe left to delete, pull to reorder) and automatic light/dark mode adaptation."
+    },
+    {
+      "feature_name": "Low-Latency Offline-First Sync Engine",
+      "feature_description": "Offline-first local cache paired with sub-second WebSocket cloud synchronization to ensure zero input latency even on weak network connections."
+    },
+    {
+      "feature_name": "Admin Dashboard & Telemetry Tools",
+      "feature_description": "Back-office portal providing system performance metrics, voice parsing accuracy logs, active session counts, and remote feature flag toggles."
+    }
+  ],
+  "user_personas": [
+    {
+      "name": "Alex Rivera",
+      "goals": "Capture task ideas in under 2 seconds during work calls; Maintain a clutter-free daily task stream; Add tasks hands-free via Siri while moving between meetings",
+      "age_role": "29, busy founder & executive (application role: user)",
+      "pain_points": "Bloated task management apps requiring mandatory date pickers; Slow app launch times and modal dialogs; Visual clutter causing distraction",
+      "preferred_device": "iPhone 15 Pro, Apple Watch (iOS / Siri)"
+    },
+    {
+      "name": "Maya Lin",
+      "goals": "Quickly triage daily items at end of day using swipe gestures; Use Google Assistant to drop reminders into a single list; Work in OLED dark mode",
+      "age_role": "34, product manager & Android power user (application role: user)",
+      "pain_points": "Dark mode implementations using dark grey instead of true OLED black; Complex nested folder structures; Laggy UI responses during quick swipes",
+      "preferred_device": "Google Pixel 8 Pro, Galaxy Watch (Android / Google Assistant)"
+    }
+  ],
+  "user_stories": [
+    {
+      "phase": "Phase 1 - MVP Instant Capture & Voice Shortcuts",
+      "title": "Instant Text Task Capture",
+      "user_story": {
+        "as_a": "end_user",
+        "i_want": "to create a new task instantly from the primary input bar without navigating away",
+        "so_that": "I can capture my thoughts immediately before losing focus"
+      },
+      "key_feature": "Instant Voice & Text Task Capture",
+      "acceptance_criteria": [
+        "When the app launches, the cursor automatically focuses in the quick-capture input field",
+        "Pressing Enter or tapping Save immediately creates the task and clears the input field",
+        "If the input field is submitted empty, the app suppresses creation and displays a subtle inline hint",
+        "Only end_user role can access task creation features on /tasks",
+        "Task creation latency is under 100 milliseconds on local state",
+        "The data model stores name and the application uses it as described in this story.",
+        "The data model stores first name and the application uses it as described in this story.",
+        "The data model stores last name and the application uses it as described in this story.",
+        "The data model stores approved and the application uses it as described in this story.",
+        "The data model stores profile completed and the application uses it as described in this story.",
+        "The data model stores color and the application uses it as described in this story.",
+        "The data model stores source and the application uses it as described in this story."
+      ]
+    },
+    {
+      "phase": "Phase 1 - MVP Instant Capture & Voice Shortcuts",
+      "title": "In-App Voice Task Recording",
+      "user_story": {
+        "as_a": "end_user",
+        "i_want": "to tap a microphone icon and dictate my task text directly in the app",
+        "so_that": "I can add tasks rapidly hands-free when typing is inconvenient"
+      },
+      "key_feature": "Instant Voice & Text Task Capture",
+      "acceptance_criteria": [
+        "Tapping the microphone icon initiates local audio speech recognition with real-time waveform animation",
+        "Transcribed text fills the task title field dynamically as the user speaks",
+        "If microphone permissions are denied, an inline banner guides the user to OS privacy settings",
+        "Only end_user role can access speech dictation endpoints on /tasks/voice",
+        "System automatically saves the task once speech silence is detected for 1.5 seconds",
+        "The data model stores raw transcript and the application uses it as described in this story.",
+        "The data model stores auto archive days and the application uses it as described in this story."
+      ]
+    },
+    {
+      "phase": "Phase 1 - MVP Instant Capture & Voice Shortcuts",
+      "title": "Task Reminder Notification Scheduling",
+      "user_story": {
+        "as_a": "end_user",
+        "i_want": "to attach natural language due times to my captured tasks",
+        "so_that": "I receive timely push notifications for upcoming tasks"
+      },
+      "key_feature": "Instant Voice & Text Task Capture",
+      "acceptance_criteria": [
+        "Natural language time phrases such as 'today at 5pm' or 'tomorrow morning' parse automatically into scheduled due dates",
+        "Local push notifications trigger at the specified due date and time",
+        "If push notification permissions are disabled, the app alerts the user when attempting to set reminders",
+        "Only end_user role can schedule and manage local reminders on /tasks/reminders",
+        "Notification actions allow single-tap task completion directly from the OS notification shade",
+        "The data model stores parsed action and the application uses it as described in this story."
+      ]
+    },
+    {
+      "phase": "Phase 1 - MVP Instant Capture & Voice Shortcuts",
+      "title": "Siri Voice Shortcut Task Integration",
+      "user_story": {
+        "as_a": "end_user",
+        "i_want": "to add tasks via iOS Siri voice commands like 'Add task buy milk to Minimal Todo'",
+        "so_that": "I can log tasks completely hands-free while driving or walking"
+      },
+      "key_feature": "Siri & Google Assistant Integration",
+      "acceptance_criteria": [
+        "Siri Intent payload parses task text and due dates accurately into the local task store",
+        "Siri confirms task creation with audible voice feedback and custom Siri UI snippet",
+        "If the Siri phrase lacks task text, Siri prompts the user specifically for the task content",
+        "Only end_user role can execute Siri voice shortcut intents linked to their account session",
+        "Siri voice shortcut execution completes task creation in under 1 second without opening the main app UI",
+        "The data model stores quick add shortcut enabled and the application uses it as described in this story.",
+        "The data model stores sound effects enabled and the application uses it as described in this story."
+      ]
+    },
+    {
+      "phase": "Phase 1 - MVP Instant Capture & Voice Shortcuts",
+      "title": "Google Assistant Voice Task Command",
+      "user_story": {
+        "as_a": "end_user",
+        "i_want": "to create tasks using Google Assistant commands on Android devices",
+        "so_that": "I can capture tasks seamlessly across Android smartphones and smart displays"
+      },
+      "key_feature": "Siri & Google Assistant Integration",
+      "acceptance_criteria": [
+        "App Handles App Actions for Google Assistant 'create note or list' intent seamlessly",
+        "Assistant displays confirmation card upon successful task creation",
+        "If Assistant is invoked offline, tasks queue locally and sync as soon as network returns",
+        "Only end_user role can trigger Google Assistant app actions linked to /api/v1/voice/assistant",
+        "Malformed or empty voice payloads trigger an Assistant retry response"
+      ]
+    },
+    {
+      "phase": "Phase 1 - MVP Instant Capture & Voice Shortcuts",
+      "title": "Minimalist Swipe Gestures for Task Actions",
+      "user_story": {
+        "as_a": "end_user",
+        "i_want": "to swipe right to complete tasks and swipe left to delete them",
+        "so_that": "I can triage my list effortlessly with intuitive touch gestures"
+      },
+      "key_feature": "Distraction-Free Minimalist UI & Gestures",
+      "acceptance_criteria": [
+        "Swiping right on a task item marks it complete with a subtle strikethrough animation",
+        "Swiping left on a task reveals a quick delete trigger and triggers soft haptic feedback",
+        "Deleting a task displays a temporary 'Undo' snackbar toast for 4 seconds",
+        "Only end_user role can perform swipe actions on /tasks list views",
+        "Accidental partial swipes under 30% drag distance snap back to original uncompleted state"
+      ]
+    },
+    {
+      "phase": "Phase 1 - MVP Instant Capture & Voice Shortcuts",
+      "title": "Distraction-Free Theme and Focus Mode",
+      "user_story": {
+        "as_a": "end_user",
+        "i_want": "a clean dark and light interface that eliminates visual clutter",
+        "so_that": "I can focus entirely on my priorities without unnecessary UI elements"
+      },
+      "key_feature": "Distraction-Free Minimalist UI & Gestures",
+      "acceptance_criteria": [
+        "UI respects OS theme preferences by default and allows explicit dark/light mode toggle",
+        "Main list view displays zero heavy borders, badge counters, or ads",
+        "Guest users can view public dark/light theme previews on /landing without an account",
+        "Only end_user role can customize persistent interface preferences on /settings",
+        "Theme transitions execute smoothly within 150ms without layout shift"
+      ]
+    },
+    {
+      "phase": "Phase 2 - Post-Launch Sync & Admin Telemetry",
+      "title": "Background Cross-Device Task Synchronization",
+      "user_story": {
+        "as_a": "end_user",
+        "i_want": "my tasks to sync automatically across all my devices whenever changes occur",
+        "so_that": "I always have an up-to-date task list on my phone, tablet, and desktop"
+      },
+      "key_feature": "Low-Latency Offline-First Sync Engine",
+      "acceptance_criteria": [
+        "Changes made on one device propagate to connected devices via WebSocket within 500ms",
+        "If two devices modify the same task simultaneously, Conflict-Free Replicated Data Type (CRDT) rules resolve edits without data loss",
+        "Unauthenticated users are redirected to /login when accessing /sync settings",
+        "Only end_user role can initiate background account sync sessions",
+        "Sync failure due to network drop queues mutations locally and resumes automatically upon reconnect"
+      ]
+    },
+    {
+      "phase": "Phase 2 - Post-Launch Sync & Admin Telemetry",
+      "title": "Offline Task Operations and Queuing",
+      "user_story": {
+        "as_a": "end_user",
+        "i_want": "to create, edit, and complete tasks while offline without disruption",
+        "so_that": "I can remain productive in low-connectivity environments like airplanes or underground transit"
+      },
+      "key_feature": "Low-Latency Offline-First Sync Engine",
+      "acceptance_criteria": [
+        "All task mutations complete immediately against local IndexedDB or SQLite database while offline",
+        "An unobtrusive offline status indicator shows pending queued changes",
+        "When connection is restored, local queue flushes to cloud backend transparently",
+        "Only end_user role can access local offline storage on /tasks",
+        "Corrupted offline queue items log a telemetry warning and safely isolate without wiping valid local tasks"
+      ]
+    },
+    {
+      "phase": "Phase 2 - Post-Launch Sync & Admin Telemetry",
+      "title": "Admin Voice and Sync Performance Telemetry",
+      "user_story": {
+        "as_a": "admin",
+        "i_want": "to monitor real-time sync performance, voice intent error rates, and API latency metrics",
+        "so_that": "I can proactively resolve infrastructure bottlenecks and voice recognition issues"
+      },
+      "key_feature": "Admin Dashboard & Telemetry Tools",
+      "acceptance_criteria": [
+        "Dashboard displays live charts for voice intent parse accuracy and sync conflict frequencies",
+        "Only admin role can access telemetry analytics at /admin/telemetry",
+        "Unauthenticated users attempting to access /admin/telemetry are redirected to /login",
+        "Admin can filter sync metrics by OS platform (iOS, Android, Web) and time range",
+        "Anomalies in voice parsing errors above 5% trigger an automated operational alert"
+      ]
+    },
+    {
+      "phase": "Phase 2 - Post-Launch Sync & Admin Telemetry",
+      "title": "Admin User Management and System Diagnostics",
+      "user_story": {
+        "as_a": "admin",
+        "i_want": "to review system health and manage platform rate limits or user accounts",
+        "so_that": "I can maintain system stability and assist users experiencing voice integration issues"
+      },
+      "key_feature": "Admin Dashboard & Telemetry Tools",
+      "acceptance_criteria": [
+        "Admin view displays active user sessions, sync queue depth, and external API status",
+        "Only admin role can execute system diagnostic commands or adjust API rate limits on /admin/users",
+        "Non-admin users attempting to access /admin routes receive a 403 Forbidden page",
+        "Admin actions are recorded in an auditable immutable activity log",
+        "System alerts highlight API latency spikes exceeding 200ms",
+        "The data model stores external user identifier and the application uses it as described in this story."
+      ]
+    }
+  ],
+  "user_flows": [
+    {
+      "steps": [
+        "[guest] Navigate to /signup or launch app for the first time",
+        "[guest] Enter email and password or authenticate via Apple/Google OAuth",
+        "[guest] Complete short setup wizard on /onboarding to enable Siri / Google Assistant voice shortcuts",
+        "[guest] Redirect automatically to /dashboard"
+      ],
+      "flow_name": "User Authentication & Setup"
+    },
+    {
+      "steps": [
+        "[user] Issue voice command to device ('Hey Siri, add buy milk to SnapDo' or 'Hey Google, add buy milk on SnapDo')",
+        "[user] Assistant fires background API request to /api/v1/voice-capture",
+        "[user] System parses string and appends new task to user active list",
+        "[user] Receive immediate haptic/audio confirmation response on device"
+      ],
+      "flow_name": "Voice Assistant Quick Capture"
+    },
+    {
+      "steps": [
+        "[user] Open app directly to /dashboard",
+        "[user] Tap bottom quick-input bar, type task description, and press Enter",
+        "[user] Swipe right on a completed item to strike through and mark done",
+        "[user] Swipe left on an item to archive or delete"
+      ],
+      "flow_name": "Minimalist Task Management & Gesture Actions"
+    },
+    {
+      "steps": [
+        "[admin] Navigate to /admin/login",
+        "[admin] Authenticate with admin credentials and MFA token",
+        "[admin] Navigate to /admin/analytics to inspect real-time voice parsing failure rates and sync latency",
+        "[admin] Navigate to /admin/feature-flags to toggle experimental voice shortcuts or UI features"
+      ],
+      "flow_name": "Admin Platform Monitoring & Feature Toggles"
+    }
+  ],
+  "target_audience": [
+    {
+      "name": "Busy Professional",
+      "pain_points": "Frustrated by heavy productivity apps requiring multiple taps, required fields, or slow load times.",
+      "demographics": "25-50 years old, working in fast-paced tech, corporate, or freelance environments",
+      "needs_and_goals": "Needs to instantly capture tasks, ideas, and reminders before forgetting them, without navigating submenus or setting mandatory tags."
+    },
+    {
+      "name": "Voice-First On-the-Go User",
+      "pain_points": "Struggles to save tasks when hands are occupied; standard Siri/Assistant task flows are clunky or misrouted.",
+      "demographics": "20-60 years old, frequently driving, walking, commuting, or multitasking",
+      "needs_and_goals": "Wants to add reminders hands-free using natural language via Siri or Google Assistant without opening an app screen."
+    }
+  ],
+  "user_journeys": [
+    {
+      "steps": [
+        {
+          "actor": "user",
+          "description": "Opens the app which defaults immediately to / (Today's List)"
+        },
+        {
+          "actor": "user",
+          "description": "Pulls down or taps the quick-input row at top of /"
+        },
+        {
+          "actor": "user",
+          "description": "Types 'Call design lead at 3pm' and hits return"
+        },
+        {
+          "actor": "system",
+          "description": "Parses natural language date/time and updates task metadata"
+        },
+        {
+          "actor": "user",
+          "description": "Sees task added to / with tactile haptic confirmation"
+        }
+      ],
+      "context": "Instant task capture on mobile while on the move",
+      "trigger": "Alex gets a sudden idea while walking between meetings"
+    },
+    {
+      "steps": [
+        {
+          "actor": "user",
+          "description": "Says 'Hey Siri / Hey Google, add buy groceries to my task list'"
+        },
+        {
+          "actor": "system",
+          "description": "Voice Assistant processes intent and invokes webhook API"
+        },
+        {
+          "actor": "system",
+          "description": "Appends task 'Buy groceries' to user's list at /"
+        },
+        {
+          "actor": "user",
+          "description": "Later opens / and finds 'Buy groceries' synced and ready"
+        }
+      ],
+      "context": "Hands-free voice task capture via Assistant integration",
+      "trigger": "Maya is driving and remembers an urgent task"
+    },
+    {
+      "steps": [
+        {
+          "actor": "user",
+          "description": "Navigates to / (Today's List)"
+        },
+        {
+          "actor": "user",
+          "description": "Swipes right on completed items to archive them with haptic response"
+        },
+        {
+          "actor": "user",
+          "description": "Swipes left on incomplete item to schedule to /upcoming"
+        },
+        {
+          "actor": "user",
+          "description": "Pinches top item to enter distraction-free /focus view"
+        },
+        {
+          "actor": "user",
+          "description": "Swipes right to return to /"
+        }
+      ],
+      "context": "End-of-day gesture triage and focus mode",
+      "trigger": "Alex reviews daily progress at the end of the workday"
+    }
+  ],
+  "phasing": [
+    {
+      "features": [
+        "Instant Voice & Text Task Capture",
+        "Siri & Google Assistant Integration",
+        "Distraction-Free Minimalist UI & Gestures"
+      ],
+      "rationale": "Delivers the core MVP experience focused on ultra-fast task capture via typing, fluid gestures, and hands-free voice shortcuts (Siri and Google Assistant) wrapped in a distraction-free interface.",
+      "phase_name": "Phase 1 - MVP Instant Capture & Voice Shortcuts"
+    },
+    {
+      "features": [
+        "Low-Latency Offline-First Sync Engine",
+        "Admin Dashboard & Telemetry Tools"
+      ],
+      "rationale": "Enhances cross-device reliability with offline-first background synchronization while providing operational telemetry and system monitoring for administrators.",
+      "phase_name": "Phase 2 - Post-Launch Sync & Admin Telemetry"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "generated_at": "2026-08-17T22:44:10+00:00",
+  "files": {
+    "tasks.yaml": {
+      "content_hash": "3a32a7da99c61a01917314715134fbc91cfa031f298914afe6b4d72ed29d5407",
+      "generated_files": [
+        "app/models/task.rb",
+        "db/migrate/20260817224410_create_tasks.rb",
+        "spec/factories/tasks.rb",
+        "app/models/scopes/task_scope.rb",
+        "app/policies/task_policy.rb",
+        "spec/models/task_spec.rb"
+      ],
+      "generated_at": "2026-08-17T22:44:10+00:00"
+    },
+    "user_settings.yaml": {
+      "content_hash": "1d8893766391212dd2cadc3a20c5aae522b3f6daa1975e00f0139253390bd536",
+      "generated_files": [
+        "app/models/user_setting.rb",
+        "db/migrate/20260817224411_create_user_settings.rb",
+        "spec/factories/user_settings.rb",
+        "app/models/scopes/user_setting_scope.rb",
+        "app/policies/user_setting_policy.rb",
+        "spec/models/user_setting_spec.rb"
+      ],
+      "generated_at": "2026-08-17T22:44:10+00:00"
+    },
+    "voice_command_logs.yaml": {
+      "content_hash": "b0ba9381b452b1442b0c100ae84d1f47eb96b98ef0f3f42a74630daf97008ed7",
+      "generated_files": [
+        "app/models/voice_command_log.rb",
+        "db/migrate/20260817224412_create_voice_command_logs.rb",
+        "spec/factories/voice_command_logs.rb",
+        "app/models/scopes/voice_command_log_scope.rb",
+        "app/policies/voice_command_log_policy.rb",
+        "spec/models/voice_command_log_spec.rb"
+      ],
+      "generated_at": "2026-08-17T22:44:10+00:00"
+    },
+    "voice_integrations.yaml": {
+      "content_hash": "39b75f79eccf318fc6e507ed696dc724199d8d6ca3b2b7bcc7d617027774938a",
+      "generated_files": [
+        "app/models/voice_integration.rb",
+        "db/migrate/20260817224413_create_voice_integrations.rb",
+        "spec/factories/voice_integrations.rb",
+        "app/models/scopes/voice_integration_scope.rb",
+        "app/policies/voice_integration_policy.rb",
+        "spec/models/voice_integration_spec.rb"
+      ],
+      "generated_at": "2026-08-17T22:44:10+00:00"
+    }
+  }
+}

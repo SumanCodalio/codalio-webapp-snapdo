@@ -1,0 +1,27 @@
+[
+  {
+    "title": "1. Read criteria and plan test coverage",
+    "notes": "Read acceptance-criteria.json and .rhino-plan.md to list all criteria and extras.",
+    "status": "done"
+  },
+  {
+    "title": "2. Audit existing tests and factories",
+    "notes": "Examine existing tests under test/ and test factories/fixtures.",
+    "status": "done"
+  },
+  {
+    "title": "3. Write comprehensive Minitest test suite",
+    "notes": "Write Minitest feature/integration tests covering all acceptance criteria and extras.",
+    "status": "done"
+  },
+  {
+    "title": "4. Run test suite and fix failures",
+    "notes": "Execute bundle exec rails test and fix any test failures.",
+    "status": "done"
+  },
+  {
+    "title": "5. Update acceptance-criteria.json and verify coverage",
+    "notes": "Mark acceptance criteria as tested in acceptance-criteria.json and verify full coverage.",
+    "status": "done"
+  }
+]

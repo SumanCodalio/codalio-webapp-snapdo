@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Phase 0 \u2014 Multi-tenancy gate",
+    "notes": "Verified Organization.base_owner? and tables",
+    "status": "done"
+  },
+  {
+    "title": "Phase A \u2014 Generate feature models",
+    "notes": "Generated Task, UserSetting, VoiceIntegration, VoiceCommandLog models and migrations",
+    "status": "done"
+  },
+  {
+    "title": "Phase B \u2014 Implement Extras",
+    "notes": "Implemented NaturalLanguageDateParser, VoiceCapturesController, route, and seed data",
+    "status": "done"
+  },
+  {
+    "title": "Phase C \u2014 Verify multi-tenancy and API contracts",
+    "notes": "Verified multi-tenancy and API contracts",
+    "status": "done"
+  },
+  {
+    "title": "Phase D \u2014 Write backend unit and integration tests",
+    "notes": "Wrote and executed Minitest unit and integration request tests",
+    "status": "done"
+  }
+]

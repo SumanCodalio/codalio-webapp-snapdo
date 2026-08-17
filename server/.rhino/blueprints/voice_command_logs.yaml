@@ -1,0 +1,45 @@
+model: VoiceCommandLog
+slug: voice_command_logs
+table: voice_command_logs
+
+options:
+  belongs_to_organization: true
+  soft_deletes: false
+  audit_trail: false
+  pagination: true
+  per_page: 50
+
+columns:
+  provider:
+    type: string
+    nullable: false
+    filterable: true
+  utterance:
+    type: text
+    nullable: true
+  parsed_action:
+    type: string
+    nullable: true
+  confidence:
+    type: float
+    nullable: true
+  outcome:
+    type: string
+    default: "success"
+    filterable: true
+
+relationships:
+  - type: belongsTo
+    model: Organization
+
+permissions:
+  end_user:
+    actions: [index, show, store]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: []
+  admin:
+    actions: [index, show, store, update, destroy]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"

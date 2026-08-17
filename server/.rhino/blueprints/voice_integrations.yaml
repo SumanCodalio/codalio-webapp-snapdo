@@ -1,0 +1,40 @@
+model: VoiceIntegration
+slug: voice_integrations
+table: voice_integrations
+
+options:
+  belongs_to_organization: true
+  soft_deletes: false
+  audit_trail: false
+  pagination: false
+
+columns:
+  provider:
+    type: string
+    nullable: false
+    filterable: true
+  enabled:
+    type: boolean
+    default: true
+  shortcut_phrase:
+    type: string
+    nullable: true
+  last_synced_at:
+    type: datetime
+    nullable: true
+
+relationships:
+  - type: belongsTo
+    model: Organization
+
+permissions:
+  end_user:
+    actions: [index, show, store, update, destroy]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"
+  admin:
+    actions: [index, show, store, update, destroy]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"

@@ -1,0 +1,27 @@
+[
+  {
+    "title": "PRD integrity audit",
+    "notes": "Analyze PRD cross-sections and output .codalio/prd-integrity-report.json",
+    "status": "done"
+  },
+  {
+    "title": "Data model design",
+    "notes": "Define models, attributes, relationships, and multi-tenant scoping",
+    "status": "done"
+  },
+  {
+    "title": "Permissions & Extras design",
+    "notes": "Define roles in _roles.yaml, model permission matrix, and policy/scope Extras",
+    "status": "done"
+  },
+  {
+    "title": "Screens & handoff design",
+    "notes": "Inventory screens, routes, and build ui-handoff.json mapping",
+    "status": "done"
+  },
+  {
+    "title": "Acceptance criteria & plan artifacts",
+    "notes": "Generate acceptance-criteria.json, index.json, and .rhino-plan.md",
+    "status": "done"
+  }
+]

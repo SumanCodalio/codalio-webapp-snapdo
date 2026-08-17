@@ -1,0 +1,46 @@
+model: UserSetting
+slug: user_settings
+table: user_settings
+
+options:
+  belongs_to_organization: true
+  soft_deletes: false
+  audit_trail: false
+  pagination: false
+
+columns:
+  theme:
+    type: string
+    default: "oled_black"
+    filterable: true
+  font_scale:
+    type: integer
+    default: 100
+  haptic_intensity:
+    type: integer
+    default: 50
+  auto_archive_days:
+    type: integer
+    default: 30
+  quick_add_shortcut_enabled:
+    type: boolean
+    default: true
+  sound_effects_enabled:
+    type: boolean
+    default: true
+
+relationships:
+  - type: belongsTo
+    model: Organization
+
+permissions:
+  end_user:
+    actions: [index, show, store, update]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"
+  admin:
+    actions: [index, show, store, update]
+    show_fields: "*"
+    create_fields: "*"
+    update_fields: "*"

@@ -1,0 +1,70 @@
+{
+  "gaps": [
+    {
+      "code": "PROTECTED_ROUTE_NO_AUTH_AC",
+      "severity": "medium",
+      "message": "Protected route /settings, /focus, /upcoming, /archive, /dashboard require authenticated user role, but PRD lacks explicit auth AC for some sub-settings routes.",
+      "compensation_hint": "Add explicit auth and role gating for authenticated routes and document in plan + ACs."
+    },
+    {
+      "code": "SITEMAP_PAGE_NO_AC",
+      "severity": "medium",
+      "message": "Route /api/v1/voice-capture is listed in sitemap and prototype pages but lacks a dedicated user story acceptance criteria entry in PRD.",
+      "compensation_hint": "Add Voice Capture API screen/endpoint documentation and AC-12 for /api/v1/voice-capture telemetry/status endpoint."
+    }
+  ],
+  "summary": {
+    "gap_count": 2,
+    "high_severity_count": 0,
+    "medium_severity_count": 2,
+    "low_severity_count": 0
+  },
+  "role_registry": [
+    {
+      "role": "end_user",
+      "description": "Standard authenticated user capturing and managing personal tasks."
+    },
+    {
+      "role": "admin",
+      "description": "System administrator monitoring telemetry, managing users, and feature flags."
+    }
+  ],
+  "coverage_matrix": [
+    {
+      "key_feature": "Instant Voice & Text Task Capture",
+      "covered_in_sitemap": true,
+      "covered_in_stories": true,
+      "covered_in_prototype": true
+    },
+    {
+      "key_feature": "Siri & Google Assistant Integration",
+      "covered_in_sitemap": true,
+      "covered_in_stories": true,
+      "covered_in_prototype": true
+    },
+    {
+      "key_feature": "Distraction-Free Minimalist UI & Gestures",
+      "covered_in_sitemap": true,
+      "covered_in_stories": true,
+      "covered_in_prototype": true
+    },
+    {
+      "key_feature": "Low-Latency Offline-First Sync Engine",
+      "covered_in_sitemap": true,
+      "covered_in_stories": true,
+      "covered_in_prototype": true
+    },
+    {
+      "key_feature": "Admin Dashboard & Telemetry Tools",
+      "covered_in_sitemap": true,
+      "covered_in_stories": true,
+      "covered_in_prototype": true
+    }
+  ],
+  "hints_for_planner": [
+    "Ensure _roles.yaml defines end_user and admin roles.",
+    "Compensate for /api/v1/voice-capture route with AC and endpoint specification.",
+    "Ensure all authenticated routes check roles and redirect unauthenticated users."
+  ],
+  "updated_at": "2026-08-17T22:30:00Z"
+}
