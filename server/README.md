@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## Support
+
+Tasks are archived automatically after 90 days of inactivity.
