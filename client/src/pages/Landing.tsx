@@ -14,11 +14,11 @@ export default function Landing() {
   const [focused, setFocused] = useState("");
   const baseOwnerId = useBaseOwnerId();
 
-  const { data: indexData, isLoading: isPending } = useModelIndex("task");
+  const { data: indexData, isLoading: isPending } = useModelIndex("tasks");
   const tasks = (indexData as any)?.data || (indexData as any)?.results || [];
 
-  const createMutation = useModelStore("task");
-  const updateMutation = useModelUpdate("task");
+  const createMutation = useModelStore("tasks");
+  const updateMutation = useModelUpdate("tasks");
 
   const completeTask = (id: number | string) => {
     updateMutation.mutate({ id, data: { status: "completed", completed_at: new Date().toISOString() } });

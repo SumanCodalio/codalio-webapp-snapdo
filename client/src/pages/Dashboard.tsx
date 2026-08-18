@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
 import { useModelIndex } from "@rhino-dev/rhino-react";
 
 export default function Dashboard() {
-  const { data, isLoading: isPending } = useModelIndex("task");
+  const { data, isLoading: isPending } = useModelIndex("tasks");
   const tasks = (data as any)?.results || [];
 
   const completed = tasks.filter((t: any) => t.status === "completed").length;

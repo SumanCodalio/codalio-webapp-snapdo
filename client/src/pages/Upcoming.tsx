@@ -2,9 +2,9 @@ import TaskRow from "../components/TaskRow";
 import { useModelIndex, useModelUpdate } from "@rhino-dev/rhino-react";
 
 export default function Upcoming() {
-  const { data, isLoading: isPending } = useModelIndex("task");
+  const { data, isLoading: isPending } = useModelIndex("tasks");
   const tasks = (data as any)?.results || [];
-  const updateMutation = useModelUpdate("task");
+  const updateMutation = useModelUpdate("tasks");
 
   const upcomingTasks = tasks.filter((t: any) => t.status !== "completed");
 

@@ -11,9 +11,9 @@ export default function Focus() {
   const [done, setDone] = useState(false);
   const navigate = useNavigate();
 
-  const { data } = useModelIndex("task");
+  const { data } = useModelIndex("tasks");
   const tasks = (data as any)?.results || [];
-  const updateMutation = useModelUpdate("task");
+  const updateMutation = useModelUpdate("tasks");
 
   const focusTask = tasks.find((t: any) => t.status !== "completed") || {
     id: 1,

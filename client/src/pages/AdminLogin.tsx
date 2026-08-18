@@ -16,15 +16,15 @@ export default function AdminLogin() {
     event.preventDefault();
     setError("");
     try {
-      const res = await axios.post("/api/auth/sign_in", {
+      const res = await axios.post("/api/auth/login", {
         email,
         password,
       });
-      if (res.headers["access-token"]) {
-        localStorage.setItem("access-token", res.headers["access-token"]);
-        localStorage.setItem("client", res.headers["client"]);
-        localStorage.setItem("uid", res.headers["uid"]);
-        localStorage.setItem("expiry", res.headers["expiry"]);
+      if (res.data?.token) {
+        localStorage.setItem("access-token", res.data.token);
+        if (res.data.organization_slug) {
+          localStorage.setItem("organization-slug", res.data.organization_slug);
+        }
       }
       navigate("/admin/analytics");
     } catch (err: any) {
