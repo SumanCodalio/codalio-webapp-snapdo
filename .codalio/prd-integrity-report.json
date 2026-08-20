@@ -59,12 +59,19 @@
       "covered_in_sitemap": true,
       "covered_in_stories": true,
       "covered_in_prototype": true
+    },
+    {
+      "key_feature": "Automated 90-Day Task Archival",
+      "covered_in_sitemap": true,
+      "covered_in_stories": true,
+      "covered_in_prototype": true
     }
   ],
   "hints_for_planner": [
     "Ensure _roles.yaml defines end_user and admin roles.",
     "Compensate for /api/v1/voice-capture route with AC and endpoint specification.",
-    "Ensure all authenticated routes check roles and redirect unauthenticated users."
+    "Ensure all authenticated routes check roles and redirect unauthenticated users.",
+    "Ensure automated 90-day archival filter is included in TaskScope and AC mappings."
   ],
-  "updated_at": "2026-08-17T22:30:00Z"
+  "updated_at": "2026-08-20T03:47:00Z"
 }

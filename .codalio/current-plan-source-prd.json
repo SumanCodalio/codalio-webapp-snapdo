@@ -20,7 +20,7 @@
     },
     {
       "feature_name": "Distraction-Free Minimalist UI & Gestures",
-      "feature_description": "A ultra-clean single-list interface with fluid gesture interactions (swipe right to complete, swipe left to delete, pull to reorder) and automatic light/dark mode adaptation."
+      "feature_description": "An ultra-clean single-list interface with fluid gesture interactions (swipe right to complete, swipe left to delete, pull to reorder) and automatic light/dark mode adaptation. Integrated with automated task retention policies to keep active lists focused and performant."
     },
     {
       "feature_name": "Low-Latency Offline-First Sync Engine",
@@ -247,6 +247,23 @@
         "System alerts highlight API latency spikes exceeding 200ms",
         "The data model stores external user identifier and the application uses it as described in this story."
       ]
+    },
+    {
+      "phase": "Phase 2 - Post-Launch Sync & Admin Telemetry",
+      "title": "Automated 90-Day Completed Task Archival",
+      "user_story": {
+        "as_a": "end_user",
+        "i_want": "completed tasks older than 90 days to automatically drop out of my active task API listings",
+        "so_that": "my main task list remains uncluttered, fast, and focused on relevant items"
+      },
+      "key_feature": "Automated 90-Day Task Archival",
+      "acceptance_criteria": [
+        "Active API listings for task retrieval filter records using `completed_at IS NULL OR completed_at > 90.days.ago`",
+        "Completed tasks with `completed_at` timestamp within 90 days remain visible in completed list views",
+        "Tasks completed older than 90 days automatically drop out of active task API responses without requiring manual deletion",
+        "Only end_user role can retrieve active task listings on /api/v1/tasks and /dashboard",
+        "Archived tasks older than 90 days are excluded from local cache sync payloads to optimize active list bandwidth and storage"
+      ]
     }
   ],
   "user_flows": [
@@ -390,9 +407,10 @@
     {
       "features": [
         "Low-Latency Offline-First Sync Engine",
-        "Admin Dashboard & Telemetry Tools"
+        "Admin Dashboard & Telemetry Tools",
+        "Automated 90-Day Task Archival"
       ],
-      "rationale": "Enhances cross-device reliability with offline-first background synchronization while providing operational telemetry and system monitoring for administrators.",
+      "rationale": "Enhances cross-device reliability with offline-first background synchronization, provides operational telemetry for administrators, and automatically archives completed tasks older than 90 days to keep active task feeds performant.",
       "phase_name": "Phase 2 - Post-Launch Sync & Admin Telemetry"
     }
   ]

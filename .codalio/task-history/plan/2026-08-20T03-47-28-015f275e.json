@@ -1,0 +1,27 @@
+[
+  {
+    "title": "PRD integrity audit",
+    "notes": "Analyzed PRD cross-section consistency and updated .codalio/prd-integrity-report.json",
+    "status": "done"
+  },
+  {
+    "title": "Data model and roles reconcile",
+    "notes": "Blueprints verified and aligned with PRD requirements",
+    "status": "done"
+  },
+  {
+    "title": "Extras and policies reconcile",
+    "notes": "Planned extras: Voice Captures Controller, Natural Language Date Parser, and TaskScope 90-day archival filter",
+    "status": "done"
+  },
+  {
+    "title": "Screens and ui-handoff reconcile",
+    "notes": "Verified .codalio/ui-handoff.json and screen mappings",
+    "status": "done"
+  },
+  {
+    "title": "Acceptance criteria and plan document refresh",
+    "notes": "Reconciled 74 acceptance criteria (preserving tested status for developed code), updated .rhino-plan.md, and updated .codalio/index.json",
+    "status": "done"
+  }
+]

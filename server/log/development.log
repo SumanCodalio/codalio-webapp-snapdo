@@ -150563,3 +150563,252 @@ ActionController::RoutingError (No route matches [GET] "/api/info/openapi"):
   
   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+Started GET "/up" for 127.0.0.1 at 2026-08-19 13:31:01 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+Processing by Rails::HealthController#show as */*
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/api/info/openapi" for 127.0.0.1 at 2026-08-19 13:31:01 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/info/openapi"):
+  
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:30 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:30 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:30 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:31 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:31 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:32 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:32 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:32 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:33 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:33 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:34 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:34 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:35 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:35 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:36 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:36 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:36 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:36 +0000
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:36 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:37 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:37 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:38 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:38 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:38 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:39 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:39 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:40 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:40 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:41 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:41 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:42 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:44 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-19 13:31:44 +0000
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+Filter chain halted as :authenticate_user_after_org! rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
