@@ -1,0 +1,29 @@
+import React from "react";
+import { Badge } from "../components/ui/badge";
+import { Button } from "../components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
+import { Checkbox } from "../components/ui/checkbox";
+import { Input } from "../components/ui/input";
+import { Textarea } from "../components/ui/textarea";
+import SourceBadge from "../components/SourceBadge";
+
+import { CalendarClock, Check, Search, Send, SlidersHorizontal, UserRound } from "lucide-react";
+import { useState } from "react";
+
+export default function Inbox() {
+    const [search, setSearch] = useState("");
+    const [filter, setFilter] = useState("All");
+    const [items, setItems] = useState([{ id: 1, title: "Review API gateway migration PR before release", source: "GitHub", priority: "High", owner: "You", age: "12m", done: false }, { id: 2, title: "Payments webhook retries are exceeding the error budget", source: "Jira", priority: "High", owner: "Maya", age: "28m", done: false }, { id: 3, title: "Decide owner for mobile incident follow-up", source: "Slack", priority: "Medium", owner: "Unassigned", age: "1h", done: false }]);
+    const toggleDone = (id: number) => setItems(items.map(item => item.id === id ? { ...item, done: !item.done } : item));
+    const [reply, setReply] = useState("");
+    const [sent, setSent] = useState(false);
+    const [completed, setCompleted] = useState(false);
+  return (
+   <div className="w-full min-w-0 bg-background text-foreground overflow-x-hidden">
+      <div className="flex w-full min-w-0 flex-col gap-5">
+          <section className="space-y-4"><div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"><div><p className="text-sm font-medium text-primary">Workspace / Platform Engineering</p><h1 className="mt-1 text-2xl font-bold tracking-tight text-foreground">Unified inbox</h1><p className="mt-1 text-sm text-muted-foreground">Prioritized work from every connected source.</p></div><div className="flex gap-2"><Button variant="outline" size="sm"><SlidersHorizontal className="mr-2 size-4" />Filters</Button><Button size="sm" onClick={() => setItems(items.filter(item => !item.done))}>Clear resolved</Button></div></div><div className="flex flex-col gap-3 rounded-lg border border-border bg-card p-3 sm:flex-row sm:items-center"><div className="relative flex-1"><Search className="absolute left-3 top-2.5 size-4 text-muted-foreground" /><Input className="pl-9" value={search} onChange={event => setSearch(event.target.value)} placeholder="Search tasks…" /></div><div className="flex gap-2 overflow-x-auto">{["All", "Assigned to me", "Blocked PRs", "Slack actions"].map(preset => <Button key={preset} variant={filter === preset ? "secondary" : "ghost"} size="sm" onClick={() => setFilter(preset)}>{preset}</Button>)}</div></div><Card className="divide-y divide-border overflow-hidden">{items.filter(item => item.title.toLowerCase().includes(search.toLowerCase()) && (filter === "All" || (filter === "Assigned to me" && item.owner === "You") || (filter === "Blocked PRs" && item.source === "GitHub") || (filter === "Slack actions" && item.source === "Slack"))).map(item => <div key={item.id} className={`flex items-center gap-3 p-4 transition-colors hover:bg-muted/50 ${item.done ? "opacity-50" : ""}`}><Checkbox checked={item.done} onCheckedChange={() => toggleDone(item.id)} /><div className="min-w-0 flex-1"><div className="flex items-center gap-2"><Badge className={item.priority === "High" ? "bg-rose-600" : "bg-amber-500"}>{item.priority}</Badge><SourceBadge source={item.source} /></div><p className="mt-2 truncate text-sm font-medium text-foreground">{item.title}</p></div><div className="hidden text-right text-xs text-muted-foreground sm:block"><p>{item.owner}</p><p className="mt-1">{item.age}</p></div><Button variant="ghost" size="sm" onClick={() => toggleDone(item.id)}>{item.done ? "Reopen" : "Resolve"}</Button></div>)}</Card></section>
+  <section className="grid gap-4 lg:grid-cols-3"><Card className="lg:col-span-2"><CardHeader className="flex-row items-center justify-between"><div><CardTitle className="text-base">Task context</CardTitle><p className="mt-1 text-sm text-muted-foreground">Keep the conversation and source details together.</p></div><Badge variant="secondary">GitHub</Badge></CardHeader><CardContent><div className="rounded-lg bg-muted p-4"><p className="text-sm font-medium text-foreground">API gateway migration</p><p className="mt-2 text-sm leading-6 text-muted-foreground">The latest deployment is blocked by an auth header compatibility check. Review requested before the release window.</p></div><div className="mt-4 space-y-2"><Textarea value={reply} onChange={event => setReply(event.target.value)} placeholder="Add a note to the linked thread…" /><Button size="sm" disabled={!reply.trim()} onClick={() => { setSent(true); setReply(""); }}><Send className="mr-2 size-4" />Send update</Button>{sent && <span className="ml-3 text-sm text-emerald-600">Update queued</span>}</div></CardContent></Card><Card><CardHeader><CardTitle className="text-base">Quick actions</CardTitle></CardHeader><CardContent className="space-y-2"><Button className="w-full justify-start" variant="secondary"><UserRound className="mr-2 size-4" />Delegate</Button><Button className="w-full justify-start" variant="outline"><CalendarClock className="mr-2 size-4" />Snooze</Button><Button className="w-full justify-start" onClick={() => setCompleted(!completed)}><Check className="mr-2 size-4" />{completed ? "Reopen task" : "Complete task"}</Button></CardContent></Card></section>
+      </div>
+    </div>
+  );
+}

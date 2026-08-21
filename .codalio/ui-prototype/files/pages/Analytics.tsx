@@ -6,8 +6,8 @@ export default function PagePlaceholder() {
       window.parent.postMessage(
         {
           type: "codalio-regenerate-page",
-          pageName: "Onboarding",
-          prompt: `Please regenerate the page "Onboarding". The previous generation failed to produce code. Make sure to generate all sections for this page.`
+          pageName: "Analytics",
+          prompt: `Please regenerate the page "Analytics". The previous generation failed to produce code. Make sure to generate all sections for this page.`
         },
         "*"
       );
@@ -20,7 +20,7 @@ export default function PagePlaceholder() {
         <div className="space-y-2">
           <h1 className="text-2xl font-semibold">Page Not Generated</h1>
           <p className="text-muted-foreground text-sm">
-            The page "Onboarding" could not be generated. This may be due to an error during the generation process.
+            The page "Analytics" could not be generated. This may be due to an error during the generation process.
           </p>
         </div>
         <button

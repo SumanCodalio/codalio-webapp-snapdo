@@ -1,403 +1,209 @@
 {
   "pages": [
     {
-      "name": "Focus",
-      "route": "/focus",
+      "name": "Inbox",
+      "route": "/inbox",
       "locked": false,
       "sections": [
         {
           "title": null,
           "images": null,
-          "spacing": "spacious",
+          "spacing": "tight",
           "image_urls": null,
           "section_type": "content",
           "image_keywords": null,
           "component_specs": [
             {
-              "name": "FocusTaskCard",
+              "name": "InboxToolbar",
               "props": {
-                "mode": "single-task",
-                "icons": [
-                  "Check",
-                  "Pause",
-                  "X",
-                  "TimerReset"
+                "title": "Unified inbox",
+                "presets": [
+                  "Assigned to me",
+                  "Blocked PRs",
+                  "Slack actions",
+                  "Stale Jira"
                 ],
-                "show_exit": true,
-                "show_time": true
+                "shortcut": "/ Search"
               },
               "images": null,
-              "styling": {
-                "card": "w-full border-border bg-card shadow-none",
-                "container": "mx-auto flex min-h-[calc(100vh-4rem)] max-w-xl items-center px-5"
-              },
-              "has_state": true,
-              "image_urls": null,
-              "data_source": "tasks",
-              "event_handlers": [
-                "onComplete",
-                "onPause",
-                "onExitFocus"
-              ],
-              "image_keywords": null,
-              "shadcn_components": [
-                "Card",
-                "CardContent",
-                "Button",
-                "Progress"
-              ]
-            }
-          ]
-        }
-      ],
-      "display_title": "Focus",
-      "required_imports": [
-        "lucide-react"
-      ],
-      "has_dynamic_params": false
-    },
-    {
-      "name": "Upcoming",
-      "route": "/upcoming",
-      "locked": false,
-      "sections": [
-        {
-          "title": "Upcoming",
-          "images": null,
-          "spacing": "normal",
-          "image_urls": null,
-          "section_type": "content",
-          "image_keywords": null,
-          "component_specs": [
-            {
-              "name": "UpcomingTaskTimeline",
-              "props": {
-                "icons": [
-                  "CalendarDays",
-                  "ChevronRight",
-                  "Clock3"
-                ],
-                "groups": [
-                  "Tomorrow",
-                  "This week",
-                  "Later"
-                ]
-              },
-              "images": null,
-              "styling": {
-                "row": "min-h-14 border-b border-border/70 py-4",
-                "container": "mx-auto w-full max-w-2xl px-4 py-6"
-              },
-              "has_state": true,
-              "image_urls": null,
-              "data_source": "tasks",
-              "event_handlers": [
-                "onReschedule",
-                "onOpenFocus",
-                "onFilterChange"
-              ],
-              "image_keywords": null,
-              "shadcn_components": [
-                "Tabs",
-                "Button",
-                "Badge",
-                "Separator"
-              ]
-            }
-          ]
-        }
-      ],
-      "display_title": "Upcoming",
-      "required_imports": [
-        "lucide-react"
-      ],
-      "has_dynamic_params": false
-    },
-    {
-      "name": "Archive",
-      "route": "/archive",
-      "locked": false,
-      "sections": [
-        {
-          "title": "Completed",
-          "images": null,
-          "spacing": "normal",
-          "image_urls": null,
-          "section_type": "content",
-          "image_keywords": null,
-          "component_specs": [
-            {
-              "name": "ArchiveTaskList",
-              "props": {
-                "icons": [
-                  "Search",
-                  "RotateCcw",
-                  "CheckCircle2"
-                ],
-                "search_placeholder": "Search completed tasks"
-              },
-              "images": null,
-              "styling": {
-                "row": "min-h-14 border-b border-border/70 py-4 text-muted-foreground",
-                "container": "mx-auto w-full max-w-2xl px-4 py-6"
-              },
-              "has_state": true,
-              "image_urls": null,
-              "data_source": "tasks",
-              "event_handlers": [
-                "onSearch",
-                "onRestore"
-              ],
-              "image_keywords": null,
-              "shadcn_components": [
-                "Input",
-                "Button",
-                "Badge",
-                "Separator"
-              ]
-            }
-          ]
-        }
-      ],
-      "display_title": "Archive",
-      "required_imports": [
-        "lucide-react"
-      ],
-      "has_dynamic_params": false
-    },
-    {
-      "name": "Settings",
-      "route": "/settings",
-      "locked": false,
-      "sections": [
-        {
-          "title": "Settings",
-          "images": null,
-          "spacing": "normal",
-          "image_urls": null,
-          "section_type": "content",
-          "image_keywords": null,
-          "component_specs": [
-            {
-              "name": "SettingsMenu",
-              "props": {
-                "icons": [
-                  "ChevronRight",
-                  "UserRound"
-                ],
-                "items": [
-                  {
-                    "icon": "MoonStar",
-                    "label": "Appearance & haptics",
-                    "route": "/settings/theme"
-                  },
-                  {
-                    "icon": "Mic",
-                    "label": "Voice assistants",
-                    "route": "/settings/voice"
-                  }
-                ]
-              },
-              "images": null,
-              "styling": {
-                "card": "overflow-hidden border-border shadow-none",
-                "container": "mx-auto w-full max-w-xl px-4 py-6"
-              },
-              "has_state": false,
-              "image_urls": null,
-              "data_source": "user_settings",
-              "event_handlers": [
-                "onNavigate"
-              ],
-              "image_keywords": null,
-              "shadcn_components": [
-                "Card",
-                "CardContent",
-                "Button",
-                "Separator"
-              ]
-            }
-          ]
-        }
-      ],
-      "display_title": "Settings",
-      "required_imports": [
-        "react-router-dom",
-        "lucide-react"
-      ],
-      "has_dynamic_params": false
-    },
-    {
-      "name": "SettingsVoice",
-      "route": "/settings/voice",
-      "locked": false,
-      "sections": [
-        {
-          "title": "Voice assistants",
-          "images": null,
-          "spacing": "loose",
-          "image_urls": null,
-          "section_type": "content",
-          "image_keywords": null,
-          "component_specs": [
-            {
-              "name": "VoiceIntegrationSettings",
-              "props": {
-                "icons": [
-                  "Mic",
-                  "ExternalLink",
-                  "CheckCircle2"
-                ],
-                "providers": [
-                  "Siri Shortcuts",
-                  "Google Assistant"
-                ],
-                "shortcut_example": "Add a task to SnapDo"
-              },
-              "images": null,
-              "styling": {
-                "card": "border-border shadow-none",
-                "container": "mx-auto w-full max-w-xl px-4 py-6"
-              },
-              "has_state": true,
-              "image_urls": null,
-              "data_source": "voice_integrations",
-              "event_handlers": [
-                "onToggleIntegration",
-                "onOpenSetup",
-                "onTestVoiceCommand"
-              ],
-              "image_keywords": null,
-              "shadcn_components": [
-                "Card",
-                "CardHeader",
-                "CardContent",
-                "Switch",
-                "Button",
-                "Badge"
-              ]
-            }
-          ]
-        }
-      ],
-      "display_title": "Voice assistants",
-      "required_imports": [
-        "lucide-react"
-      ],
-      "has_dynamic_params": false
-    },
-    {
-      "name": "SettingsTheme",
-      "route": "/settings/theme",
-      "locked": false,
-      "sections": [
-        {
-          "title": "Appearance & haptics",
-          "images": null,
-          "spacing": "loose",
-          "image_urls": null,
-          "section_type": "content",
-          "image_keywords": null,
-          "component_specs": [
-            {
-              "name": "ThemePreferences",
-              "props": {
-                "icons": [
-                  "Sun",
-                  "Moon",
-                  "Vibrate"
-                ],
-                "haptic_range": [
-                  0,
-                  100
-                ],
-                "theme_options": [
-                  "System",
-                  "Light",
-                  "OLED black"
-                ],
-                "font_scale_range": [
-                  80,
-                  140
-                ]
-              },
-              "images": null,
-              "styling": {
-                "card": "border-border shadow-none",
-                "container": "mx-auto w-full max-w-xl px-4 py-6"
-              },
-              "has_state": true,
-              "image_urls": null,
-              "data_source": "user_settings",
-              "event_handlers": [
-                "onThemeChange",
-                "onFontScaleChange",
-                "onHapticChange"
-              ],
-              "image_keywords": null,
-              "shadcn_components": [
-                "Card",
-                "CardContent",
-                "Switch",
-                "RadioGroup",
-                "Slider",
-                "Label"
-              ]
-            }
-          ]
-        }
-      ],
-      "display_title": "Appearance & haptics",
-      "required_imports": [
-        "lucide-react"
-      ],
-      "has_dynamic_params": false
-    },
-    {
-      "name": "Signup",
-      "route": "/signup",
-      "locked": false,
-      "sections": [
-        {
-          "title": null,
-          "images": null,
-          "spacing": "spacious",
-          "image_urls": null,
-          "section_type": "content",
-          "image_keywords": null,
-          "component_specs": [
-            {
-              "name": "SignupForm",
-              "props": {
-                "icons": [
-                  "ArrowRight"
-                ],
-                "title": "Keep every thought in motion",
-                "fields": [
-                  "name",
-                  "email",
-                  "password"
-                ]
-              },
-              "images": null,
-              "styling": {
-                "card": "w-full border-border shadow-none",
-                "container": "mx-auto flex min-h-[calc(100vh-4rem)] max-w-md items-center px-4"
-              },
+              "styling": {},
               "has_state": true,
               "image_urls": null,
               "data_source": null,
               "event_handlers": [
-                "onChange",
-                "onSubmit"
+                "onSearch",
+                "onFilterChange",
+                "onBulkSelect"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Input",
+                "Button",
+                "ToggleGroup",
+                "Checkbox",
+                "Badge"
+              ]
+            },
+            {
+              "name": "TaskStream",
+              "props": {
+                "fields": [
+                  "priority",
+                  "source",
+                  "title",
+                  "age",
+                  "sync_status",
+                  "assignee"
+                ],
+                "density": "compact",
+                "quick_actions": [
+                  "Resolve",
+                  "Snooze",
+                  "Delegate"
+                ]
+              },
+              "images": null,
+              "styling": {
+                "list": "divide-y divide-border"
+              },
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "tasks, task_labels, external_links",
+              "event_handlers": [
+                "onSelectTask",
+                "onResolve",
+                "onSnooze",
+                "onDelegate"
               ],
               "image_keywords": null,
               "shadcn_components": [
                 "Card",
-                "CardHeader",
-                "CardContent",
-                "Input",
-                "Label",
+                "Badge",
+                "Checkbox",
+                "Button",
+                "Tooltip"
+              ]
+            }
+          ]
+        },
+        {
+          "title": null,
+          "images": null,
+          "spacing": "tight",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "TaskContextDrawer",
+              "props": {
+                "side": "right",
+                "tabs": [
+                  "Conversation",
+                  "GitHub",
+                  "Jira"
+                ],
+                "actions": [
+                  {
+                    "label": "Delegate",
+                    "shortcut": "m"
+                  },
+                  {
+                    "label": "Snooze",
+                    "shortcut": "s"
+                  },
+                  {
+                    "label": "Complete",
+                    "shortcut": "e"
+                  }
+                ],
+                "preserve_master_position": true
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "tasks, external_links, task_events",
+              "event_handlers": [
+                "onClose",
+                "onTabChange",
+                "onReply",
+                "onDelegate",
+                "onSnooze",
+                "onComplete"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Sheet",
+                "Tabs",
+                "Button",
+                "Badge",
+                "Textarea",
+                "Select"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Inbox",
+      "required_imports": null,
+      "has_dynamic_params": false
+    },
+    {
+      "name": "InboxSnoozed",
+      "route": "/inbox/snoozed",
+      "locked": false,
+      "sections": [
+        {
+          "title": null,
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "SnoozedHeader",
+              "props": {
+                "title": "Snoozed tasks",
+                "description": "Items will return automatically at their selected time."
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Button",
+                "Badge"
+              ]
+            },
+            {
+              "name": "SnoozedTaskTable",
+              "props": {
+                "columns": [
+                  "Task",
+                  "Source",
+                  "Snoozed until",
+                  "Owner",
+                  "Actions"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "tasks",
+              "event_handlers": [
+                "onUnsnooze",
+                "onSelectTask"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Table",
+                "Badge",
                 "Button",
                 "Checkbox"
               ]
@@ -405,69 +211,251 @@
           ]
         }
       ],
-      "display_title": "Create your account",
-      "required_imports": [
-        "lucide-react"
-      ],
+      "display_title": "Snoozed",
+      "required_imports": null,
       "has_dynamic_params": false
     },
     {
-      "name": "Onboarding",
-      "route": "/onboarding",
+      "name": "InboxTriage",
+      "route": "/inbox/triage",
       "locked": false,
       "sections": [
         {
           "title": null,
           "images": null,
-          "spacing": "spacious",
+          "spacing": "tight",
           "image_urls": null,
           "section_type": "content",
           "image_keywords": null,
           "component_specs": [
             {
-              "name": "OnboardingFlow",
+              "name": "TriageHeader",
               "props": {
-                "icons": [
-                  "Sparkles",
-                  "Mic",
-                  "ArrowRight"
-                ],
-                "steps": [
-                  "Choose your rhythm",
-                  "Enable voice capture",
-                  "Try a task"
+                "title": "Priority triage",
+                "subtitle": "Work the highest-signal items first.",
+                "shortcuts": [
+                  "j/k Navigate",
+                  "Enter Inspect",
+                  "e Resolve"
                 ]
               },
               "images": null,
-              "styling": {
-                "card": "w-full border-border shadow-none",
-                "container": "mx-auto flex min-h-[calc(100vh-4rem)] max-w-xl items-center px-4"
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Badge",
+                "Button",
+                "Progress"
+              ]
+            },
+            {
+              "name": "TriageSplitView",
+              "props": {
+                "layout": "master-detail",
+                "actions": [
+                  "Assign to me",
+                  "Delegate",
+                  "Resolve",
+                  "Snooze"
+                ],
+                "detail_tabs": [
+                  "Source context",
+                  "Activity",
+                  "Auto-resolution"
+                ]
               },
+              "images": null,
+              "styling": {},
               "has_state": true,
               "image_urls": null,
-              "data_source": "user_settings",
+              "data_source": "tasks, external_links, task_events",
               "event_handlers": [
                 "onNext",
-                "onBack",
-                "onComplete",
-                "onToggleVoice"
+                "onPrevious",
+                "onOpenDetail",
+                "onResolve",
+                "onAssign",
+                "onDelegate",
+                "onSnooze"
               ],
               "image_keywords": null,
               "shadcn_components": [
                 "Card",
-                "CardContent",
                 "Button",
-                "Progress",
-                "Switch"
+                "Badge",
+                "Tabs",
+                "Sheet"
               ]
             }
           ]
         }
       ],
-      "display_title": "Set up SnapDo",
-      "required_imports": [
-        "lucide-react"
+      "display_title": "Triage Queue",
+      "required_imports": null,
+      "has_dynamic_params": false
+    },
+    {
+      "name": "Analytics",
+      "route": "/analytics",
+      "locked": false,
+      "sections": [
+        {
+          "title": null,
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "AnalyticsHeader",
+              "props": {
+                "title": "Signal analytics",
+                "time_ranges": [
+                  "24 hours",
+                  "7 days",
+                  "30 days"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onRangeChange",
+                "onExport"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Select",
+                "Button",
+                "Badge"
+              ]
+            },
+            {
+              "name": "VelocityMetrics",
+              "props": {
+                "metrics": [
+                  "Triage velocity",
+                  "Resolution time",
+                  "Auto-resolved",
+                  "Sync reliability"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "task_events, sync_logs",
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Progress"
+              ]
+            },
+            {
+              "name": "SignalTrendCharts",
+              "props": {
+                "charts": [
+                  "Incoming signal",
+                  "Resolution trend",
+                  "Source distribution"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "task_events, sync_logs",
+              "event_handlers": [
+                "onTabChange"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "Tabs",
+                "Badge"
+              ]
+            }
+          ]
+        }
       ],
+      "display_title": "Analytics",
+      "required_imports": null,
+      "has_dynamic_params": false
+    },
+    {
+      "name": "TeamDelegation",
+      "route": "/team/delegation",
+      "locked": false,
+      "sections": [
+        {
+          "title": null,
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "DelegationHeader",
+              "props": {
+                "title": "Delegation matrix",
+                "description": "Route work to the person best positioned to unblock it."
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Button",
+                "Badge"
+              ]
+            },
+            {
+              "name": "DelegationBoard",
+              "props": {
+                "columns": [
+                  "Unassigned",
+                  "Delegated",
+                  "Awaiting response",
+                  "Completed"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "users, tasks",
+              "event_handlers": [
+                "onDelegate",
+                "onReassign",
+                "onOpenTask"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "Avatar",
+                "Badge",
+                "Select",
+                "Button"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Delegation Matrix",
+      "required_imports": null,
       "has_dynamic_params": false
     },
     {
@@ -476,319 +464,7 @@
       "locked": false,
       "sections": [
         {
-          "title": "Your momentum",
-          "images": null,
-          "spacing": "loose",
-          "image_urls": null,
-          "section_type": "content",
-          "image_keywords": null,
-          "component_specs": [
-            {
-              "name": "PersonalMetrics",
-              "props": {
-                "icons": [
-                  "CheckCircle2",
-                  "Flame",
-                  "Inbox"
-                ],
-                "metrics": [
-                  "Tasks completed",
-                  "Capture streak",
-                  "Inbox to zero"
-                ]
-              },
-              "images": null,
-              "styling": {
-                "grid": "grid gap-4 sm:grid-cols-3",
-                "container": "mx-auto w-full max-w-5xl px-4 py-6"
-              },
-              "has_state": false,
-              "image_urls": null,
-              "data_source": "tasks",
-              "event_handlers": null,
-              "image_keywords": null,
-              "shadcn_components": [
-                "Card",
-                "CardHeader",
-                "CardContent",
-                "Progress",
-                "Badge"
-              ]
-            },
-            {
-              "name": "RecentCaptureActivity",
-              "props": {
-                "icons": [
-                  "Mic",
-                  "ArrowUpRight"
-                ]
-              },
-              "images": null,
-              "styling": {
-                "card": "border-border shadow-none",
-                "container": "mx-auto w-full max-w-5xl px-4"
-              },
-              "has_state": false,
-              "image_urls": null,
-              "data_source": "tasks",
-              "event_handlers": [
-                "onNavigate"
-              ],
-              "image_keywords": null,
-              "shadcn_components": [
-                "Card",
-                "CardHeader",
-                "CardContent",
-                "Button",
-                "Separator"
-              ]
-            }
-          ]
-        }
-      ],
-      "display_title": "Dashboard",
-      "required_imports": [
-        "lucide-react"
-      ],
-      "has_dynamic_params": false
-    },
-    {
-      "name": "VoiceCapture",
-      "route": "/api/v1/voice-capture",
-      "locked": false,
-      "sections": [
-        {
-          "title": "Voice capture",
-          "images": null,
-          "spacing": "loose",
-          "image_urls": null,
-          "section_type": "content",
-          "image_keywords": null,
-          "component_specs": [
-            {
-              "name": "VoiceCaptureConsole",
-              "props": {
-                "icons": [
-                  "Mic",
-                  "Play",
-                  "CheckCircle2"
-                ],
-                "title": "Test an intent",
-                "placeholder": "e.g. Remind me to send the brief Friday at 9am"
-              },
-              "images": null,
-              "styling": {
-                "card": "border-border shadow-none",
-                "container": "mx-auto w-full max-w-3xl px-4 py-6"
-              },
-              "has_state": true,
-              "image_urls": null,
-              "data_source": "voice_command_logs",
-              "event_handlers": [
-                "onChange",
-                "onSubmitCapture"
-              ],
-              "image_keywords": null,
-              "shadcn_components": [
-                "Card",
-                "CardHeader",
-                "CardContent",
-                "Textarea",
-                "Button",
-                "Badge"
-              ]
-            },
-            {
-              "name": "VoiceCommandLog",
-              "props": {
-                "columns": [
-                  "Utterance",
-                  "Parsed task",
-                  "Status",
-                  "Time"
-                ]
-              },
-              "images": null,
-              "styling": {
-                "card": "border-border shadow-none",
-                "container": "mx-auto w-full max-w-3xl px-4"
-              },
-              "has_state": false,
-              "image_urls": null,
-              "data_source": "voice_command_logs",
-              "event_handlers": null,
-              "image_keywords": null,
-              "shadcn_components": [
-                "Card",
-                "CardHeader",
-                "CardContent",
-                "Table",
-                "Badge"
-              ]
-            }
-          ]
-        }
-      ],
-      "display_title": "Voice Capture API",
-      "required_imports": [
-        "lucide-react"
-      ],
-      "has_dynamic_params": false
-    },
-    {
-      "name": "AdminLogin",
-      "route": "/admin/login",
-      "locked": false,
-      "sections": [
-        {
           "title": null,
-          "images": null,
-          "spacing": "spacious",
-          "image_urls": null,
-          "section_type": "content",
-          "image_keywords": null,
-          "component_specs": [
-            {
-              "name": "AdminLoginForm",
-              "props": {
-                "icons": [
-                  "ShieldCheck",
-                  "ArrowRight"
-                ],
-                "title": "Admin access",
-                "fields": [
-                  "work email",
-                  "password"
-                ]
-              },
-              "images": null,
-              "styling": {
-                "card": "w-full border-border shadow-none",
-                "container": "mx-auto flex min-h-[calc(100vh-4rem)] max-w-md items-center px-4"
-              },
-              "has_state": true,
-              "image_urls": null,
-              "data_source": null,
-              "event_handlers": [
-                "onChange",
-                "onSubmit"
-              ],
-              "image_keywords": null,
-              "shadcn_components": [
-                "Card",
-                "CardHeader",
-                "CardContent",
-                "Input",
-                "Label",
-                "Button"
-              ]
-            }
-          ]
-        }
-      ],
-      "display_title": "Admin login",
-      "required_imports": [
-        "lucide-react"
-      ],
-      "has_dynamic_params": false
-    },
-    {
-      "name": "AdminAnalytics",
-      "route": "/admin/analytics",
-      "locked": false,
-      "sections": [
-        {
-          "title": "System health",
-          "images": null,
-          "spacing": "loose",
-          "image_urls": null,
-          "section_type": "content",
-          "image_keywords": null,
-          "component_specs": [
-            {
-              "name": "TelemetryMetrics",
-              "props": {
-                "icons": [
-                  "Activity",
-                  "AudioLines",
-                  "Gauge",
-                  "CloudOff"
-                ],
-                "metrics": [
-                  "Active sessions",
-                  "Voice parse accuracy",
-                  "Median sync latency",
-                  "Offline queue"
-                ]
-              },
-              "images": null,
-              "styling": {
-                "grid": "grid gap-4 sm:grid-cols-2 xl:grid-cols-4",
-                "container": "mx-auto w-full max-w-6xl px-4 py-6"
-              },
-              "has_state": false,
-              "image_urls": null,
-              "data_source": "voice_command_logs",
-              "event_handlers": null,
-              "image_keywords": null,
-              "shadcn_components": [
-                "Card",
-                "CardHeader",
-                "CardContent",
-                "Badge"
-              ]
-            },
-            {
-              "name": "VoiceAccuracyLog",
-              "props": {
-                "icons": [
-                  "Download"
-                ],
-                "columns": [
-                  "Provider",
-                  "Utterance",
-                  "Confidence",
-                  "Outcome"
-                ]
-              },
-              "images": null,
-              "styling": {
-                "card": "border-border shadow-none",
-                "container": "mx-auto w-full max-w-6xl px-4"
-              },
-              "has_state": true,
-              "image_urls": null,
-              "data_source": "voice_command_logs",
-              "event_handlers": [
-                "onExport",
-                "onFilterChange"
-              ],
-              "image_keywords": null,
-              "shadcn_components": [
-                "Card",
-                "CardHeader",
-                "CardContent",
-                "Table",
-                "Badge",
-                "Button"
-              ]
-            }
-          ]
-        }
-      ],
-      "display_title": "Admin analytics",
-      "required_imports": [
-        "lucide-react"
-      ],
-      "has_dynamic_params": false
-    },
-    {
-      "name": "AdminFeatureFlags",
-      "route": "/admin/feature-flags",
-      "locked": false,
-      "sections": [
-        {
-          "title": "Feature flags",
           "images": null,
           "spacing": "normal",
           "image_urls": null,
@@ -796,49 +472,244 @@
           "image_keywords": null,
           "component_specs": [
             {
-              "name": "FeatureFlagManager",
+              "name": "DashboardHeader",
               "props": {
-                "flags": [
-                  "New voice parser",
-                  "Haptic completion",
-                  "Focus mode v2",
-                  "Offline sync diagnostics"
+                "title": "Command center",
+                "actions": [
+                  "Force sync",
+                  "Customize view"
                 ],
-                "icons": [
-                  "ToggleRight",
-                  "RotateCcw"
+                "time_ranges": [
+                  "Today",
+                  "This week",
+                  "Sprint"
                 ]
               },
               "images": null,
-              "styling": {
-                "card": "border-border shadow-none",
-                "container": "mx-auto w-full max-w-4xl px-4 py-6"
-              },
+              "styling": {},
               "has_state": true,
               "image_urls": null,
-              "data_source": "organizations",
+              "data_source": null,
               "event_handlers": [
-                "onToggleFlag",
-                "onResetFlag"
+                "onRangeChange",
+                "onForceSync"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Button",
+                "Badge",
+                "Select"
+              ]
+            },
+            {
+              "name": "OperationalMetrics",
+              "props": {
+                "density": "compact",
+                "metrics": [
+                  "Open signal",
+                  "Blocked PRs",
+                  "Stale issues",
+                  "Sync health"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "tasks, sync_logs",
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Badge"
+              ]
+            },
+            {
+              "name": "CommandCenterGrid",
+              "props": {
+                "layout": "responsive multi-column",
+                "panels": [
+                  "Priority queue",
+                  "Team blockers",
+                  "Recent sync activity",
+                  "Upcoming milestones"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "tasks, task_events, sync_logs",
+              "event_handlers": [
+                "onSelectTask",
+                "onPanelTabChange"
               ],
               "image_keywords": null,
               "shadcn_components": [
                 "Card",
-                "CardHeader",
-                "CardContent",
-                "Switch",
+                "Tabs",
                 "Badge",
                 "Button",
-                "Separator"
+                "Progress"
               ]
             }
           ]
         }
       ],
-      "display_title": "Feature flags",
-      "required_imports": [
-        "lucide-react"
+      "display_title": "Command Center",
+      "required_imports": null,
+      "has_dynamic_params": false
+    },
+    {
+      "name": "Team",
+      "route": "/team",
+      "locked": false,
+      "sections": [
+        {
+          "title": null,
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "TeamHeader",
+              "props": {
+                "title": "Team workspace",
+                "actions": [
+                  "Delegate work",
+                  "Invite member"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onSearch",
+                "onInvite"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Button",
+                "Input",
+                "Badge"
+              ]
+            },
+            {
+              "name": "TeamWorkloadMatrix",
+              "props": {
+                "mode": "read-only for tech lead",
+                "fields": [
+                  "member",
+                  "role",
+                  "active work",
+                  "blockers",
+                  "availability"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "users, roles, tasks",
+              "event_handlers": [
+                "onSelectMember",
+                "onDelegate"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "Avatar",
+                "Badge",
+                "Progress",
+                "Button"
+              ]
+            }
+          ]
+        }
       ],
+      "display_title": "Team",
+      "required_imports": null,
+      "has_dynamic_params": false
+    },
+    {
+      "name": "AnalyticsActivity",
+      "route": "/analytics/activity",
+      "locked": false,
+      "sections": [
+        {
+          "title": null,
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "ActivityHeader",
+              "props": {
+                "title": "Real-time activity",
+                "filters": [
+                  "All activity",
+                  "Task updates",
+                  "Sync events",
+                  "Automation"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onSearch",
+                "onFilterChange"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Input",
+                "Select",
+                "Button"
+              ]
+            },
+            {
+              "name": "ActivityLog",
+              "props": {
+                "live": true,
+                "fields": [
+                  "timestamp",
+                  "actor",
+                  "event",
+                  "source",
+                  "status"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "task_events, sync_logs",
+              "event_handlers": [
+                "onLoadMore",
+                "onOpenSource"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "Badge",
+                "Button",
+                "ScrollArea"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Activity Log",
+      "required_imports": null,
       "has_dynamic_params": false
     },
     {
@@ -849,127 +720,680 @@
         {
           "title": null,
           "images": null,
-          "spacing": "normal",
+          "spacing": "spacious",
           "image_urls": null,
           "section_type": "hero",
           "image_keywords": null,
           "component_specs": [
             {
-              "name": "TodayTaskStream",
+              "name": "CommandCenterHero",
               "props": {
                 "icons": [
-                  "Check",
-                  "Clock3",
-                  "MoreHorizontal"
+                  "Command",
+                  "ArrowRight"
                 ],
-                "title": "Today",
-                "gestures": {
-                  "pull_down": "search_or_new",
-                  "long_press": "focus",
-                  "swipe_left": "defer",
-                  "swipe_right": "complete"
+                "headline": "Your engineering signal, in one decisive view.",
+                "description": "Triage work across GitHub, Jira, Slack, Teams, and email without losing context.",
+                "primary_cta": {
+                  "label": "Open command center",
+                  "route": "/inbox"
                 },
-                "empty_state": "Clear the list. Capture the next thing."
+                "secondary_cta": {
+                  "label": "See dashboard",
+                  "route": "/dashboard"
+                }
               },
               "images": null,
               "styling": {
-                "task": "min-h-14 border-b border-border/70 py-4",
-                "container": "mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-2xl flex-col px-4 pb-28 pt-6"
+                "container": "rounded-xl border border-border bg-card p-8"
               },
-              "has_state": true,
+              "has_state": false,
               "image_urls": null,
-              "data_source": "tasks",
-              "event_handlers": [
-                "onComplete",
-                "onDefer",
-                "onOpenFocus",
-                "onPullToSearch"
-              ],
+              "data_source": null,
+              "event_handlers": null,
               "image_keywords": null,
               "shadcn_components": [
                 "Button",
-                "Badge",
-                "Separator"
+                "Badge"
               ]
             },
             {
-              "name": "PersistentQuickCapture",
+              "name": "ShortcutPreview",
               "props": {
-                "icons": [
-                  "Mic",
-                  "ArrowUp"
-                ],
-                "placeholder": "Add a task\u2026 \u201cCall Maya tomorrow at 5pm\u201d",
-                "submit_label": "Save",
-                "voice_button": true,
-                "natural_language_hint": "Dates and priority are understood automatically"
+                "shortcuts": [
+                  "\u2318K Command palette",
+                  "j/k Navigate",
+                  "e Resolve",
+                  "m Delegate"
+                ]
               },
               "images": null,
               "styling": {
-                "input": "min-h-12 rounded-xl bg-card text-base",
-                "container": "fixed inset-x-0 bottom-0 z-30 mx-auto max-w-2xl border-t border-border bg-background/95 p-4 backdrop-blur"
+                "container": "font-mono text-xs text-muted-foreground"
               },
-              "has_state": true,
+              "has_state": false,
               "image_urls": null,
-              "data_source": "tasks",
-              "event_handlers": [
-                "onChange",
-                "onSubmit",
-                "onVoiceCapture"
-              ],
+              "data_source": null,
+              "event_handlers": null,
               "image_keywords": null,
               "shadcn_components": [
-                "Input",
-                "Button",
-                "Tooltip"
+                "Badge"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Built for high-velocity engineering teams",
+          "images": null,
+          "spacing": "loose",
+          "image_urls": null,
+          "section_type": "features",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "FeatureGrid",
+              "props": {
+                "features": [
+                  {
+                    "icon": "PanelsTopLeft",
+                    "title": "Multi-pane triage",
+                    "description": "Master list and source context stay visible."
+                  },
+                  {
+                    "icon": "RefreshCw",
+                    "title": "Bi-directional sync",
+                    "description": "Updates flow back to every connected tool."
+                  },
+                  {
+                    "icon": "Sparkles",
+                    "title": "Signal prioritization",
+                    "description": "Blockers and executive requests rise first."
+                  }
+                ]
+              },
+              "images": null,
+              "styling": {
+                "grid": "grid gap-4 md:grid-cols-3"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Badge"
+              ]
+            }
+          ]
+        },
+        {
+          "title": null,
+          "images": null,
+          "spacing": "loose",
+          "image_urls": null,
+          "section_type": "final_cta",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "LaunchCta",
+              "props": {
+                "cta": {
+                  "label": "Start triage",
+                  "route": "/inbox"
+                },
+                "title": "Clear the queue before it clears your day."
+              },
+              "images": null,
+              "styling": {
+                "container": "rounded-xl bg-primary p-6 text-primary-foreground"
+              },
+              "has_state": false,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Button"
               ]
             }
           ]
         }
       ],
-      "display_title": "Today",
-      "required_imports": [
-        "lucide-react"
+      "display_title": "SyncPulse",
+      "required_imports": null,
+      "has_dynamic_params": false
+    },
+    {
+      "name": "IntegrationRules",
+      "route": "/settings/integrations/rules",
+      "locked": false,
+      "sections": [
+        {
+          "title": null,
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "RulesHeader",
+              "props": {
+                "title": "Auto-resolution rules",
+                "action": {
+                  "icon": "Plus",
+                  "label": "New rule"
+                },
+                "description": "Define when source updates should resolve or reprioritize SyncPulse tasks."
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onCreateRule"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Button",
+                "Badge"
+              ]
+            },
+            {
+              "name": "AutomationRuleList",
+              "props": {
+                "fields": [
+                  "rule",
+                  "source",
+                  "trigger",
+                  "result",
+                  "enabled"
+                ],
+                "conditions": [
+                  "PR merged",
+                  "Jira moved to Done",
+                  "Slack action completed"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "integration_accounts, tasks",
+              "event_handlers": [
+                "onToggleRule",
+                "onEditRule",
+                "onDeleteRule"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "Badge",
+                "Switch",
+                "Button",
+                "DropdownMenu"
+              ]
+            }
+          ]
+        }
       ],
+      "display_title": "Auto-Resolution Rules",
+      "required_imports": null,
+      "has_dynamic_params": false
+    },
+    {
+      "name": "Onboarding",
+      "route": "/onboarding",
+      "locked": false,
+      "sections": [
+        {
+          "title": null,
+          "images": null,
+          "spacing": "loose",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "OnboardingProgress",
+              "props": {
+                "steps": [
+                  "Choose workspace",
+                  "Connect tools",
+                  "Set triage preferences",
+                  "Invite team"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Progress",
+                "Badge"
+              ]
+            },
+            {
+              "name": "OnboardingWizard",
+              "props": {
+                "title": "Set up your command center",
+                "actions": [
+                  "Continue",
+                  "Skip for now"
+                ],
+                "providers": [
+                  "GitHub",
+                  "Jira",
+                  "Slack",
+                  "Microsoft Teams"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onNext",
+                "onBack",
+                "onConnectProvider",
+                "onComplete"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "Button",
+                "Input",
+                "Select",
+                "Checkbox"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Onboarding",
+      "required_imports": null,
+      "has_dynamic_params": false
+    },
+    {
+      "name": "Admin",
+      "route": "/admin",
+      "locked": false,
+      "sections": [
+        {
+          "title": null,
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "AdminHeader",
+              "props": {
+                "title": "Workspace administration",
+                "description": "Govern members, integrations, and operational policy."
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Badge",
+                "Button"
+              ]
+            },
+            {
+              "name": "AdminOverviewGrid",
+              "props": {
+                "cards": [
+                  "Active users",
+                  "Connected tools",
+                  "Sync health",
+                  "Security posture"
+                ],
+                "quick_links": [
+                  {
+                    "label": "Manage users",
+                    "route": "/admin/users"
+                  },
+                  {
+                    "label": "Manage integrations",
+                    "route": "/admin/integrations"
+                  }
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": false,
+              "image_urls": null,
+              "data_source": "organizations, users, integration_accounts",
+              "event_handlers": null,
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "CardContent",
+                "Button",
+                "Badge"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Administration",
+      "required_imports": null,
+      "has_dynamic_params": false
+    },
+    {
+      "name": "AdminIntegrations",
+      "route": "/admin/integrations",
+      "locked": false,
+      "sections": [
+        {
+          "title": null,
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "AdminIntegrationHeader",
+              "props": {
+                "title": "Integration administration",
+                "actions": [
+                  "Audit log",
+                  "Add connection"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onAddConnection",
+                "onOpenAudit"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Button",
+                "Badge"
+              ]
+            },
+            {
+              "name": "IntegrationGovernanceTable",
+              "props": {
+                "columns": [
+                  "Provider",
+                  "Workspace",
+                  "Scope",
+                  "Owner",
+                  "Health",
+                  "Updated",
+                  "Controls"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "integration_accounts, sync_logs",
+              "event_handlers": [
+                "onToggleConnection",
+                "onEditScopes",
+                "onDisconnect"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Table",
+                "Badge",
+                "Button",
+                "Switch",
+                "DropdownMenu"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Integration Admin",
+      "required_imports": null,
+      "has_dynamic_params": false
+    },
+    {
+      "name": "AdminUsers",
+      "route": "/admin/users",
+      "locked": false,
+      "sections": [
+        {
+          "title": null,
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "UserAdminHeader",
+              "props": {
+                "title": "Users and roles",
+                "action": {
+                  "icon": "UserPlus",
+                  "label": "Invite user"
+                }
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onSearch",
+                "onInviteUser"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Input",
+                "Button",
+                "Badge"
+              ]
+            },
+            {
+              "name": "UserRoleTable",
+              "props": {
+                "roles": [
+                  "engineering_manager",
+                  "tech_lead"
+                ],
+                "columns": [
+                  "User",
+                  "Role",
+                  "Team",
+                  "Last active",
+                  "Access",
+                  "Actions"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "users, roles, users_roles",
+              "event_handlers": [
+                "onRoleChange",
+                "onRemoveUser",
+                "onOpenUser"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Table",
+                "Avatar",
+                "Badge",
+                "Select",
+                "Button",
+                "DropdownMenu"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "User Administration",
+      "required_imports": null,
+      "has_dynamic_params": false
+    },
+    {
+      "name": "SettingsIntegrations",
+      "route": "/settings/integrations",
+      "locked": false,
+      "sections": [
+        {
+          "title": null,
+          "images": null,
+          "spacing": "normal",
+          "image_urls": null,
+          "section_type": "content",
+          "image_keywords": null,
+          "component_specs": [
+            {
+              "name": "IntegrationsHeader",
+              "props": {
+                "title": "Connected integrations",
+                "action": {
+                  "icon": "Plus",
+                  "label": "Connect integration"
+                },
+                "description": "Manage scopes, sync health, and account connections."
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": null,
+              "event_handlers": [
+                "onConnect"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Button",
+                "Badge"
+              ]
+            },
+            {
+              "name": "IntegrationAccountGrid",
+              "props": {
+                "fields": [
+                  "connection",
+                  "scopes",
+                  "last sync",
+                  "health",
+                  "auto-sync"
+                ],
+                "providers": [
+                  "GitHub",
+                  "Jira",
+                  "Slack",
+                  "Microsoft Teams",
+                  "Email"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "integration_accounts, sync_logs",
+              "event_handlers": [
+                "onToggleSync",
+                "onReconnect",
+                "onConfigure",
+                "onDisconnect"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "Badge",
+                "Button",
+                "Switch",
+                "DropdownMenu"
+              ]
+            },
+            {
+              "name": "SyncHealthPanel",
+              "props": {
+                "title": "Bi-directional sync health",
+                "actions": [
+                  "Force all sync",
+                  "View activity"
+                ]
+              },
+              "images": null,
+              "styling": {},
+              "has_state": true,
+              "image_urls": null,
+              "data_source": "sync_logs",
+              "event_handlers": [
+                "onForceSync",
+                "onViewActivity"
+              ],
+              "image_keywords": null,
+              "shadcn_components": [
+                "Card",
+                "Progress",
+                "Button",
+                "Badge"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_title": "Integrations",
+      "required_imports": null,
       "has_dynamic_params": false
     }
   ],
   "layout": {
     "name": "Layout",
     "props": {
-      "header": "compact context header with searchable command trigger and settings gear",
-      "content": "edge-to-edge mobile canvas; centered max-width content on desktop",
-      "project_name": "SnapDo",
-      "mobile_behavior": "Sheet navigation; task views retain edge-swipe gesture affordances",
-      "navigation_style": "gesture-first edge-to-edge task app with compact desktop rail",
-      "secondary_routes": [
-        {
-          "label": "Upcoming",
-          "route": "/upcoming"
-        },
-        {
-          "label": "Archive",
-          "route": "/archive"
-        },
-        {
-          "label": "Focus",
-          "route": "/focus"
-        },
-        {
-          "label": "Settings",
-          "route": "/settings"
-        }
-      ],
+      "shell": "collapsible 220px desktop navigation rail with 64px icon-only state; persistent utility header; fluid multi-pane content canvas",
+      "header": "global search trigger with Cmd/Ctrl+K, sync status, notifications, user menu",
+      "content": "desktop-first max-width-none with compact breadcrumbs; no redundant footer",
+      "sidebar_top": "workspace and active-team selector",
+      "project_name": "SyncPulse",
+      "sidebar_bottom": "live bi-directional sync health, keyboard-shortcuts trigger, profile menu",
       "primary_navigation": [
         {
-          "icon": "CheckSquare",
-          "label": "Today",
-          "route": "/"
+          "icon": "Inbox",
+          "label": "Inbox",
+          "route": "/inbox",
+          "badge_source": "notifications"
         },
         {
-          "icon": "UserPlus",
-          "label": "Sign up",
-          "route": "/signup"
+          "icon": "PanelsTopLeft",
+          "label": "Dashboard",
+          "route": "/dashboard"
+        },
+        {
+          "icon": "Users",
+          "label": "Team",
+          "route": "/team"
+        },
+        {
+          "icon": "ChartNoAxesCombined",
+          "label": "Analytics",
+          "route": "/analytics"
+        },
+        {
+          "icon": "Plug",
+          "label": "Integrations",
+          "route": "/settings/integrations"
         },
         {
           "icon": "Sparkles",
@@ -977,154 +1401,240 @@
           "route": "/onboarding"
         },
         {
-          "icon": "LayoutDashboard",
-          "label": "Dashboard",
-          "route": "/dashboard"
-        },
-        {
-          "icon": "Mic",
-          "label": "Voice API",
-          "route": "/api/v1/voice-capture"
-        },
-        {
           "icon": "ShieldCheck",
-          "label": "Admin login",
-          "route": "/admin/login"
-        },
-        {
-          "icon": "ChartNoAxesCombined",
-          "label": "Analytics",
-          "route": "/admin/analytics"
-        },
-        {
-          "icon": "ToggleRight",
-          "label": "Feature flags",
-          "route": "/admin/feature-flags"
+          "label": "Admin",
+          "route": "/admin"
         }
       ]
     },
     "styling": {
-      "main": "min-w-0 flex-1",
-      "shell": "min-h-screen bg-background text-foreground",
-      "header": "sticky top-0 z-20 border-b border-border/70 bg-background/90 backdrop-blur",
-      "sidebar": "hidden md:flex border-r border-border bg-background"
+      "shell": "bg-background text-foreground",
+      "header": "h-12 border-b border-border bg-background/95",
+      "content": "min-w-0 p-4 lg:p-5",
+      "sidebar": "border-r border-border bg-card"
     },
     "has_state": true,
     "image_urls": null,
     "data_source": null,
     "event_handlers": [
-      "onMenuToggle",
-      "onCommandSearch",
-      "onNavigate"
+      "onWorkspaceChange",
+      "onTeamFilterChange",
+      "onToggleSidebar",
+      "onOpenCommandPalette",
+      "onOpenShortcutLegend"
     ],
     "image_keywords": null,
     "shadcn_components": [
       "Sidebar",
       "Sheet",
       "Button",
+      "Badge",
+      "Avatar",
+      "DropdownMenu",
       "Tooltip",
-      "Breadcrumb"
+      "Separator"
     ]
   },
   "design_notes": null,
-  "project_name": "SnapDo",
+  "project_name": "SyncPulse",
   "design_tokens": {
     "dark": {
-      "card": "#0C0C0C",
-      "ring": "#5EEAD4",
-      "input": "#292929",
-      "muted": "#171717",
-      "accent": "#134E4A",
-      "border": "#292929",
-      "radius": "0.75rem",
-      "primary": "#2DD4BF",
-      "secondary": "#1C1C1C",
-      "background": "#000000",
-      "foreground": "#F5F5F4",
+      "card": "#121C2D",
+      "ring": "#60A5FA",
+      "input": "#263650",
+      "muted": "#172338",
+      "accent": "#1E3A5F",
+      "border": "#263650",
+      "radius": "0.5rem",
+      "primary": "#60A5FA",
+      "secondary": "#1C2A40",
+      "background": "#0B1220",
+      "foreground": "#E6EDF7",
       "destructive": "#F87171",
-      "card_foreground": "#F5F5F4",
-      "muted_foreground": "#A8A29E",
-      "accent_foreground": "#CCFBF1",
-      "primary_foreground": "#042F2E",
-      "secondary_foreground": "#E7E5E4",
-      "destructive_foreground": "#450A0A"
+      "card_foreground": "#E6EDF7",
+      "muted_foreground": "#91A4C0",
+      "accent_foreground": "#DCEBFF",
+      "primary_foreground": "#0B1220",
+      "secondary_foreground": "#D7E4F7",
+      "destructive_foreground": "#230B0B"
     },
     "light": {
       "card": "#FFFFFF",
-      "ring": "#14B8A6",
-      "input": "#E7E5E4",
-      "muted": "#F5F5F4",
-      "accent": "#CCFBF1",
-      "border": "#E7E5E4",
-      "radius": "0.75rem",
-      "primary": "#0F766E",
-      "secondary": "#F5F5F4",
-      "background": "#FAFAF9",
-      "foreground": "#1C1917",
+      "ring": "#2563EB",
+      "input": "#D9E2EF",
+      "muted": "#F1F5F9",
+      "accent": "#DBEAFE",
+      "border": "#D9E2EF",
+      "radius": "0.5rem",
+      "primary": "#2563EB",
+      "secondary": "#EAF0FA",
+      "background": "#F7F9FC",
+      "foreground": "#172033",
       "destructive": "#DC2626",
-      "card_foreground": "#1C1917",
-      "muted_foreground": "#78716C",
-      "accent_foreground": "#134E4A",
-      "primary_foreground": "#F0FDFA",
-      "secondary_foreground": "#292524",
-      "destructive_foreground": "#FEF2F2"
+      "card_foreground": "#172033",
+      "muted_foreground": "#62708A",
+      "accent_foreground": "#173E79",
+      "primary_foreground": "#FFFFFF",
+      "secondary_foreground": "#203454",
+      "destructive_foreground": "#FFFFFF"
     },
     "gradients": null
   },
   "layout_archetype": "dashboard",
   "shared_components": [
     {
-      "name": "QuickCaptureButton",
+      "name": "CommandPalette",
       "props": {
-        "icon": "Mic",
-        "aria_label": "Capture a task by voice"
+        "groups": [
+          "Navigate",
+          "Tasks",
+          "Integrations",
+          "Actions"
+        ],
+        "commands": [
+          "Create Jira ticket from Slack message",
+          "Pause Slack notifications",
+          "Force sync GitHub webhooks"
+        ],
+        "shortcut": "Cmd/Ctrl+K"
       },
       "images": null,
       "styling": {
-        "button": "size-12 rounded-full bg-primary text-primary-foreground shadow-sm"
+        "dialog": "max-w-2xl"
+      },
+      "has_state": true,
+      "image_urls": null,
+      "data_source": "tasks, external_links, integration_accounts",
+      "event_handlers": [
+        "onOpen",
+        "onSearch",
+        "onSelectCommand",
+        "onClose"
+      ],
+      "image_keywords": null,
+      "shadcn_components": [
+        "Command",
+        "Dialog",
+        "Input",
+        "Badge"
+      ]
+    },
+    {
+      "name": "SourceBadge",
+      "props": {
+        "sources": {
+          "Jira": {
+            "icon": "KanbanSquare",
+            "variant": "secondary"
+          },
+          "Email": {
+            "icon": "Mail",
+            "variant": "secondary"
+          },
+          "Slack": {
+            "icon": "MessageSquare",
+            "variant": "secondary"
+          },
+          "GitHub": {
+            "icon": "Github",
+            "variant": "secondary"
+          },
+          "Microsoft Teams": {
+            "icon": "Users",
+            "variant": "secondary"
+          }
+        }
+      },
+      "images": null,
+      "styling": {
+        "badge": "gap-1 text-xs"
+      },
+      "has_state": false,
+      "image_urls": null,
+      "data_source": null,
+      "event_handlers": null,
+      "image_keywords": null,
+      "shadcn_components": [
+        "Badge",
+        "Tooltip"
+      ]
+    },
+    {
+      "name": "ShortcutLegend",
+      "props": {
+        "groups": {
+          "Global": [
+            "\u2318K command palette",
+            "? shortcuts",
+            "Esc close drawer"
+          ],
+          "Actions": [
+            "e resolve",
+            "s snooze",
+            "m delegate",
+            "a assign to self",
+            "r force sync"
+          ],
+          "Navigation": [
+            "j next task",
+            "k previous task",
+            "g i inbox",
+            "g d dashboard"
+          ]
+        }
+      },
+      "images": null,
+      "styling": {
+        "dialog": "max-w-xl font-mono"
       },
       "has_state": true,
       "image_urls": null,
       "data_source": null,
       "event_handlers": [
-        "onVoiceCapture"
+        "onOpen",
+        "onClose"
       ],
       "image_keywords": null,
       "shadcn_components": [
+        "Dialog",
         "Button",
-        "Tooltip"
+        "Badge",
+        "ScrollArea"
       ]
     },
     {
-      "name": "TaskRow",
+      "name": "AppHeader",
       "props": {
-        "icons": [
-          "Check",
-          "Clock3",
-          "GripVertical"
+        "content": [
+          "breadcrumb",
+          "global search trigger",
+          "command palette shortcut",
+          "sync indicator",
+          "notifications",
+          "profile menu"
         ],
-        "gestures": {
-          "swipe_left": "defer",
-          "swipe_right": "complete"
-        }
+        "shortcut": "\u2318K"
       },
       "images": null,
       "styling": {
-        "root": "group flex min-h-14 items-center gap-3 border-b border-border/70 py-3",
-        "completed": "text-muted-foreground line-through"
+        "container": "flex h-12 items-center gap-3 border-b border-border bg-background px-4"
       },
       "has_state": true,
       "image_urls": null,
-      "data_source": "tasks",
+      "data_source": null,
       "event_handlers": [
-        "onComplete",
-        "onDefer",
-        "onOpenFocus"
+        "onOpenCommandPalette",
+        "onOpenNotifications",
+        "onOpenProfileMenu"
       ],
       "image_keywords": null,
       "shadcn_components": [
         "Button",
-        "Badge"
+        "Input",
+        "Badge",
+        "Avatar",
+        "DropdownMenu",
+        "Tooltip"
       ]
     }
   ]
