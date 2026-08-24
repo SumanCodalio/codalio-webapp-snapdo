@@ -42,7 +42,7 @@ export default function Signup() {
     <div className="w-full min-w-0 bg-background overflow-x-hidden p-4 max-w-md mx-auto">
       <Card className="w-full border-border shadow-none">
         <CardHeader>
-          <p className="text-sm text-primary">Welcome to SnapDo</p>
+          <p className="text-sm text-primary">Welcome to Snap</p>
           <CardTitle className="text-2xl">Keep every thought in motion</CardTitle>
         </CardHeader>
         <CardContent>

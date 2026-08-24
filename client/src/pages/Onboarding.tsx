@@ -26,7 +26,7 @@ export default function Onboarding() {
     <div className="w-full min-w-0 bg-background overflow-x-hidden p-6 max-w-md mx-auto">
       <Card className="border-border shadow-none">
         <CardHeader>
-          <CardTitle className="text-xl">Welcome to SnapDo</CardTitle>
+          <CardTitle className="text-xl">Welcome to Snap</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <p className="text-sm text-muted-foreground">

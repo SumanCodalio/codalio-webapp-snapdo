@@ -37,7 +37,7 @@ export default function AdminLogin() {
       <Card className="w-full border-border shadow-none">
         <CardHeader>
           <p className="text-sm text-primary">Admin Access</p>
-          <CardTitle className="text-2xl">SnapDo System Portal</CardTitle>
+          <CardTitle className="text-2xl">Snap System Portal</CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={submit} className="space-y-4">

@@ -61,7 +61,7 @@ export default function SettingsVoice() {
                 <CheckCircle2 className="mr-1 size-3" />
                 Example
               </Badge>
-              <p className="mt-2 text-sm text-foreground">“Add a task to SnapDo”</p>
+              <p className="mt-2 text-sm text-foreground">“Add a task to Snap”</p>
             </div>
             <Button variant="outline" onClick={() => setTested(true)}>
               <ExternalLink className="size-4" />

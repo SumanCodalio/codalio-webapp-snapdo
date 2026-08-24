@@ -38,7 +38,7 @@ export default function Layout() {
             <span className="grid size-7 place-items-center rounded-lg bg-primary text-primary-foreground">
               <CheckSquare className="size-4" />
             </span>
-            SnapDo
+            Snap
           </div>
           <SidebarGroup>
             <SidebarGroupLabel>Workspace</SidebarGroupLabel>
@@ -91,7 +91,7 @@ export default function Layout() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-72 bg-popover text-popover-foreground">
-              <div className="mb-6 text-lg font-semibold">SnapDo</div>
+              <div className="mb-6 text-lg font-semibold">Snap</div>
               <nav className="grid gap-1">
                 {navItems.map(({ label, route, icon: Icon }) => (
                   <NavLink
@@ -123,7 +123,7 @@ export default function Layout() {
             </SheetContent>
           </Sheet>
           <div className="min-w-0 flex-1">
-            <p className="text-sm font-semibold text-foreground">SnapDo</p>
+            <p className="text-sm font-semibold text-foreground">Snap</p>
           </div>
           <div className="relative hidden w-56 sm:block">
             <Search className="pointer-events-none absolute left-3 top-2.5 size-4 text-muted-foreground" />
