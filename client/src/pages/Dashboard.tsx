@@ -3,7 +3,7 @@ import { useModelIndex } from "@rhino-dev/rhino-react";
 
 export default function Dashboard() {
   const { data, isLoading: isPending } = useModelIndex("tasks");
-  const tasks = (data as any)?.results || [];
+  const tasks = (data as any)?.data || [];
 
   const completed = tasks.filter((t: any) => t.status === "completed").length;
   const pending = tasks.filter((t: any) => t.status !== "completed").length;

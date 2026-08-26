@@ -3,9 +3,9 @@ import { Switch } from "../components/ui/switch";
 import { useModelIndex, useModelUpdate } from "@rhino-dev/rhino-react";
 
 export default function AdminFeatureFlags() {
-  const { data } = useModelIndex("user_setting");
-  const settings = (data as any)?.results || [];
-  const updateMutation = useModelUpdate("user_setting");
+  const { data } = useModelIndex("user_settings");
+  const settings = (data as any)?.data || [];
+  const updateMutation = useModelUpdate("user_settings");
 
   const setting = settings[0] || { id: 1, quick_add_shortcut_enabled: true, sound_effects_enabled: true };
 

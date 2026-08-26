@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 export default function Onboarding() {
   const navigate = useNavigate();
-  const { data } = useModelIndex("user_setting");
-  const settings = (data as any)?.results || [];
-  const updateMutation = useModelUpdate("user_setting");
+  const { data } = useModelIndex("user_settings");
+  const settings = (data as any)?.data || [];
+  const updateMutation = useModelUpdate("user_settings");
 
   const currentSetting = settings[0];
 
