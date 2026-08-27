@@ -5,8 +5,8 @@ import { Checkbox } from "../components/ui/checkbox";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { ArrowRight } from "lucide-react";
-import { api, useAuth } from "@rhino-dev/rhino-react";
-import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
   const [name, setName] = useState("");
@@ -14,37 +14,27 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [agreed, setAgreed] = useState(false);
   const [error, setError] = useState("");
-  const auth = useAuth();
   const navigate = useNavigate();
 
   const submit = async (event: FormEvent) => {
     event.preventDefault();
     setError("");
     try {
-      // Rhino's own /api/auth/register only accepts invited users, so open
-      // signup goes to the app's endpoint. Signing in afterwards keeps token
-      // storage in one place instead of writing it from here too.
-      await api.post("/signup", {
+      const res = await axios.post("/api/auth", {
         name,
         email,
         password,
         password_confirmation: password,
       });
-      const result = await auth.login(email, password);
-      if (!result.success) {
-        setError(result.error || "Signup failed");
-        return;
+      if (res.headers["access-token"]) {
+        localStorage.setItem("access-token", res.headers["access-token"]);
+        localStorage.setItem("client", res.headers["client"]);
+        localStorage.setItem("uid", res.headers["uid"]);
+        localStorage.setItem("expiry", res.headers["expiry"]);
       }
       navigate("/onboarding");
     } catch (err: any) {
-      const errors = err?.response?.data?.errors;
-      setError(
-        errors
-          ? Object.entries(errors)
-              .map(([field, messages]) => `${field} ${(messages as string[]).join(", ")}`)
-              .join("; ")
-          : "Signup failed"
-      );
+      setError(err?.response?.data?.errors?.full_messages?.join(", ") || "Signup failed");
     }
   };
 
@@ -79,12 +69,6 @@ export default function Signup() {
               <ArrowRight className="size-4" />
             </Button>
           </form>
-          <p className="mt-4 text-center text-sm text-muted-foreground">
-            Already have an account?{" "}
-            <Link to="/login" className="text-primary underline">
-              Sign in
-            </Link>
-          </p>
         </CardContent>
       </Card>
     </div>

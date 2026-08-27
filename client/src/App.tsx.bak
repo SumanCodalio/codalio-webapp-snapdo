@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AuthProvider } from "@rhino-dev/rhino-react";
 import { AppOwnerProvider } from "./contexts/AppOwnerProvider";
 import Layout from "./components/Layout";
@@ -18,13 +17,8 @@ import AdminAnalytics from "./pages/AdminAnalytics";
 import AdminFeatureFlags from "./pages/AdminFeatureFlags";
 import Landing from "./pages/Landing";
 
-// Rhino data hooks are react-query underneath, so the tree must sit inside a
-// client or the first page that reads data throws and unmounts the app.
-const queryClient = new QueryClient();
-
 export default function App() {
   return (
-    <QueryClientProvider client={queryClient}>
     <AuthProvider>
       <AppOwnerProvider>
         <BrowserRouter>
@@ -50,6 +44,5 @@ export default function App() {
         </BrowserRouter>
       </AppOwnerProvider>
     </AuthProvider>
-    </QueryClientProvider>
   );
 }

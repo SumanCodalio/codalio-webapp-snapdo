@@ -7,9 +7,9 @@ import { CheckCircle2, ExternalLink, Mic } from "lucide-react";
 import { useModelIndex, useModelUpdate } from "@rhino-dev/rhino-react";
 
 export default function SettingsVoice() {
-  const { data } = useModelIndex("voice_integrations");
-  const integrations = (data as any)?.data || [];
-  const updateMutation = useModelUpdate("voice_integrations");
+  const { data } = useModelIndex("voice_integration");
+  const integrations = (data as any)?.results || [];
+  const updateMutation = useModelUpdate("voice_integration");
   const [tested, setTested] = useState(false);
 
   const siriIntegration = integrations.find((i: any) => i.provider === "siri") || { id: 1, enabled: true };

@@ -3,24 +3,32 @@ import { Button } from "../components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
-import { useAuth } from "@rhino-dev/rhino-react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const auth = useAuth();
   const navigate = useNavigate();
 
   const submit = async (event: FormEvent) => {
     event.preventDefault();
     setError("");
-    const result = await auth.login(email, password);
-    if (result.success) {
+    try {
+      const res = await axios.post("/api/auth/login", {
+        email,
+        password,
+      });
+      if (res.data?.token) {
+        localStorage.setItem("access-token", res.data.token);
+        if (res.data.organization_slug) {
+          localStorage.setItem("organization-slug", res.data.organization_slug);
+        }
+      }
       navigate("/admin/analytics");
-    } else {
-      setError(result.error || "Invalid credentials");
+    } catch (err: any) {
+      setError(err?.response?.data?.errors?.join(", ") || "Invalid credentials");
     }
   };
 

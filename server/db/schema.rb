@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_08_26_120000) do
+ActiveRecord::Schema[8.0].define(version: 2026_08_17_224550) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -18,16 +18,12 @@ ActiveRecord::Schema[8.0].define(version: 2026_08_26_120000) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "slug"
-    t.index ["slug"], name: "index_organizations_on_slug", unique: true
   end
 
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "slug"
-    t.index ["slug"], name: "index_roles_on_slug", unique: true
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -66,13 +62,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_08_26_120000) do
     t.bigint "organization_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.string "api_token"
-    t.json "permissions", default: []
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.index ["api_token"], name: "index_users_on_api_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["organization_id"], name: "index_users_on_organization_id"
   end
 

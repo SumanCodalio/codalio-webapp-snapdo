@@ -47,10 +47,3 @@ group :development, :test do
 end
 
 gem "rhino-rails", "~> 4.3"
-
-# Rhino ships request_store as a dependency but never requires it, and every
-# place it reaches for the current user or organization is guarded by
-# `defined?(RequestStore)`. Unloaded, those guards silently fail and API
-# responses serialize as empty objects. Naming it here makes Bundler.require
-# load it.
-gem "request_store"
