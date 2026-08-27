@@ -1,11 +1,12 @@
 // Custom Cypress commands
-Cypress.Commands.add('signIn', (email = 'user@snap.app', password = 'password123') => {
-  cy.request('POST', '/api/auth/sign_in', { email, password }).then((response) => {
-    if (response.headers['access-token']) {
-      localStorage.setItem('access-token', response.headers['access-token']);
-      localStorage.setItem('client', response.headers['client']);
-      localStorage.setItem('uid', response.headers['uid']);
-      localStorage.setItem('expiry', response.headers['expiry']);
+
+// Signs in through the real login endpoint and stores the token under the key
+// the Rhino client reads, so the app boots already authenticated.
+Cypress.Commands.add('signIn', (email = 'test@example.com', password = 'password') => {
+  cy.request('POST', '/api/auth/login', { email, password }).then((response) => {
+    window.localStorage.setItem('token', response.body.token);
+    if (response.body.organization_slug) {
+      window.localStorage.setItem('organization_slug', response.body.organization_slug);
     }
   });
 });
