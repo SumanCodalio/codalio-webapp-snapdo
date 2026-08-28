@@ -1,0 +1,35 @@
+# Build context trimming for the generated client/ + server/ layout.
+# Copied into the repo root as .dockerignore.
+
+/.git/
+/.gitignore
+/.github/
+/.codalio/
+
+# The build files themselves never need to be inside the image.
+/Dockerfile
+/.dockerignore
+/heroku.yml
+
+# Generated apps commit their node_modules and a prebuilt client/dist; both are
+# rebuilt inside the image, and shipping them would dominate the build context.
+**/node_modules/
+/client/dist/
+
+# Never ship secrets or local database config into the image.
+**/.env*
+/server/config/master.key
+/server/config/credentials/*.key
+/server/.bundle
+
+# Logs, tempfiles and local uploads. The Dockerfile recreates these directories,
+# so there is no need to preserve their .keep files here.
+/server/log/
+/server/tmp/
+/server/storage/
+
+# Tests and editor state have no place in a production image.
+/client/cypress/
+/server/spec/
+/server/test/
+/.vscode/

@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarInset, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger } from "./ui/sidebar";
-import { CheckSquare, LayoutDashboard, Menu, Search, Settings, Sparkles, UserPlus, LogOut, Shield } from "lucide-react";
+import { CheckSquare, LayoutDashboard, LogIn, Menu, Search, Settings, Sparkles, UserPlus, LogOut, Shield } from "lucide-react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "@rhino-dev/rhino-react";
 
@@ -14,21 +14,21 @@ export default function Layout() {
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
-    localStorage.removeItem("access-token");
-    localStorage.removeItem("client");
-    localStorage.removeItem("uid");
-    localStorage.removeItem("expiry");
     await auth?.logout?.();
-    navigate("/signup");
+    navigate("/login");
   };
 
-  const navItems = [
-    { label: "Today", route: "/", icon: CheckSquare },
-    { label: "Sign up", route: "/signup", icon: UserPlus },
-    { label: "Onboarding", route: "/onboarding", icon: Sparkles },
-    { label: "Dashboard", route: "/dashboard", icon: LayoutDashboard },
-    { label: "Admin Analytics", route: "/admin/analytics", icon: Shield },
-  ];
+  const navItems = auth?.isAuthenticated
+    ? [
+        { label: "Today", route: "/", icon: CheckSquare },
+        { label: "Onboarding", route: "/onboarding", icon: Sparkles },
+        { label: "Dashboard", route: "/dashboard", icon: LayoutDashboard },
+        { label: "Admin Analytics", route: "/admin/analytics", icon: Shield },
+      ]
+    : [
+        { label: "Sign in", route: "/login", icon: LogIn },
+        { label: "Sign up", route: "/signup", icon: UserPlus },
+      ];
 
   return (
     <SidebarProvider>
@@ -60,21 +60,23 @@ export default function Layout() {
           <SidebarGroup className="mt-auto">
             <SidebarGroupContent>
               <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <NavLink to="/settings">
-                      <Settings className="size-4" />
-                      <span>Settings</span>
-                    </NavLink>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
                 {auth?.isAuthenticated && (
-                  <SidebarMenuItem>
-                    <SidebarMenuButton onClick={handleSignOut} className="text-destructive">
-                      <LogOut className="size-4" />
-                      <span>Sign Out</span>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
+                  <>
+                    <SidebarMenuItem>
+                      <SidebarMenuButton asChild>
+                        <NavLink to="/settings">
+                          <Settings className="size-4" />
+                          <span>Settings</span>
+                        </NavLink>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                    <SidebarMenuItem>
+                      <SidebarMenuButton onClick={handleSignOut} className="text-destructive">
+                        <LogOut className="size-4" />
+                        <span>Sign Out</span>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  </>
                 )}
               </SidebarMenu>
             </SidebarGroupContent>
@@ -104,21 +106,25 @@ export default function Layout() {
                     {label}
                   </NavLink>
                 ))}
-                <NavLink
-                  to="/settings"
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-foreground hover:bg-accent"
-                >
-                  <Settings className="size-4" />
-                  Settings
-                </NavLink>
-                <button
-                  onClick={handleSignOut}
-                  className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-destructive hover:bg-accent text-left"
-                >
-                  <LogOut className="size-4" />
-                  Sign Out
-                </button>
+                {auth?.isAuthenticated && (
+                  <>
+                    <NavLink
+                      to="/settings"
+                      onClick={() => setMenuOpen(false)}
+                      className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-foreground hover:bg-accent"
+                    >
+                      <Settings className="size-4" />
+                      Settings
+                    </NavLink>
+                    <button
+                      onClick={handleSignOut}
+                      className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-destructive hover:bg-accent text-left"
+                    >
+                      <LogOut className="size-4" />
+                      Sign Out
+                    </button>
+                  </>
+                )}
               </nav>
             </SheetContent>
           </Sheet>
