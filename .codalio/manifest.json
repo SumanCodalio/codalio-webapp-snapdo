@@ -1,9 +1,16 @@
 {
   "generator": "openhands-orchestrator",
-  "last_push_sha": "f4ba5784cccf90fe0e9c85f2a1e14007d003c375",
-  "pushed_at": "2026-08-25T17:41:20.464951+00:00",
+  "last_push_sha": "d64694020e4bb7992a5d4a7c2a25e434c84b16bf",
+  "pushed_at": "2026-08-28T14:25:04.863619+00:00",
   "plan_content_fingerprint": "1ad23e6c1c4375f2ed6f542849122d5843d78fde1f732c0dc9005ad43822ff84",
-  "prd_version": 0,
-  "stages_completed": [],
+  "prd_version": 1,
+  "stages_completed": [
+    "plan",
+    "develop",
+    "ui-integration",
+    "test",
+    "review",
+    "agent"
+  ],
   "last_run_id": null
 }

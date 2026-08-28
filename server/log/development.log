@@ -150905,3 +150905,186 @@ ActionController::RoutingError (No route matches [GET] "/api/info/openapi"):
   [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+Started GET "/up" for 127.0.0.1 at 2026-08-27 19:38:18 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+  ↳ config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+Processing by Rails::HealthController#show as */*
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/info/openapi" for 127.0.0.1 at 2026-08-27 19:38:18 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/info/openapi"):
+  
+config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+Started POST "/api/auth/login" for 127.0.0.1 at 2026-08-27 19:38:21 -0400
+Processing by Rhino::AuthController#login as JSON
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "route_group" => "default", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (10.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'test@example.com' LIMIT 1 /*action='login',application='Server',controller='auth'*/[0m
+  ↳ config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+  [1m[36mUser Update (12.5ms)[0m  [1m[33mUPDATE "users" SET "api_token" = '62f82ce4e96d436e24a6caeb38cb0180f47b60bd71887fdbf57426bd7b1fe07b' WHERE "users"."id" = 1 /*action='login',application='Server',controller='auth'*/[0m
+  ↳ config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+  [1m[36mOrganization Load (13.4ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" INNER JOIN "users_roles" ON "organizations"."id" = "users_roles"."organization_id" WHERE "users_roles"."user_id" = 1 ORDER BY "organizations"."id" ASC LIMIT 1 /*action='login',application='Server',controller='auth'*/[0m
+  ↳ config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+Completed 200 OK in 354ms (Views: 0.1ms | ActiveRecord: 66.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-27 19:38:21 -0400
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."api_token" = '62f82ce4e96d436e24a6caeb38cb0180f47b60bd71887fdbf57426bd7b1fe07b' LIMIT 1 /*action='index',application='Server',controller='resources'*/[0m
+  ↳ config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+  [1m[36mTask Load (5.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE (completed_at IS NULL OR completed_at > '2026-05-29 23:38:21.928506') /*action='index',application='Server',controller='resources'*/[0m
+  ↳ config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+  [1m[36mOrganization Load (0.6ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" WHERE "organizations"."id" = 1 LIMIT 1 /*action='index',application='Server',controller='resources'*/[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mUsersRole Load (0.4ms)[0m  [1m[34mSELECT "users_roles".* FROM "users_roles" WHERE "users_roles"."user_id" = 1 AND "users_roles"."organization_id" = 1 LIMIT 1 /*action='index',application='Server',controller='resources'*/[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mRole Load (3.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 1 LIMIT 1 /*action='index',application='Server',controller='resources'*/[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE UsersRole Load (0.0ms)[0m  [1m[34mSELECT "users_roles".* FROM "users_roles" WHERE "users_roles"."user_id" = 1 AND "users_roles"."organization_id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE UsersRole Load (0.0ms)[0m  [1m[34mSELECT "users_roles".* FROM "users_roles" WHERE "users_roles"."user_id" = 1 AND "users_roles"."organization_id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE UsersRole Load (0.0ms)[0m  [1m[34mSELECT "users_roles".* FROM "users_roles" WHERE "users_roles"."user_id" = 1 AND "users_roles"."organization_id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE UsersRole Load (0.0ms)[0m  [1m[34mSELECT "users_roles".* FROM "users_roles" WHERE "users_roles"."user_id" = 1 AND "users_roles"."organization_id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE UsersRole Load (0.0ms)[0m  [1m[34mSELECT "users_roles".* FROM "users_roles" WHERE "users_roles"."user_id" = 1 AND "users_roles"."organization_id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+Completed 200 OK in 40ms (Views: 0.1ms | ActiveRecord: 13.8ms (15 queries, 10 cached) | GC: 0.0ms)
+
+
+Started GET "/api/user_settings" for 127.0.0.1 at 2026-08-27 19:38:23 -0400
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "user_settings", "route_group" => "default"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."api_token" = '62f82ce4e96d436e24a6caeb38cb0180f47b60bd71887fdbf57426bd7b1fe07b' LIMIT 1 /*action='index',application='Server',controller='resources'*/[0m
+  ↳ config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+  [1m[36mUserSetting Load (5.3ms)[0m  [1m[34mSELECT "user_settings".* FROM "user_settings" /*action='index',application='Server',controller='resources'*/[0m
+  ↳ config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 5.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3584076093455773020) /*application='Server'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Server'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(3584076093455773020) /*application='Server'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+Started GET "/api/tasks" for 127.0.0.1 at 2026-08-27 19:38:26 -0400
+Processing by Rhino::ResourcesController#index as JSON
+  Parameters: {"model_slug" => "tasks", "route_group" => "default"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."api_token" = '62f82ce4e96d436e24a6caeb38cb0180f47b60bd71887fdbf57426bd7b1fe07b' LIMIT 1 /*action='index',application='Server',controller='resources'*/[0m
+  ↳ config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE (completed_at IS NULL OR completed_at > '2026-05-29 23:38:26.528545') /*action='index',application='Server',controller='resources'*/[0m
+  ↳ config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+  [1m[36mOrganization Load (0.5ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" WHERE "organizations"."id" = 1 LIMIT 1 /*action='index',application='Server',controller='resources'*/[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mUsersRole Load (0.4ms)[0m  [1m[34mSELECT "users_roles".* FROM "users_roles" WHERE "users_roles"."user_id" = 1 AND "users_roles"."organization_id" = 1 LIMIT 1 /*action='index',application='Server',controller='resources'*/[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 1 LIMIT 1 /*action='index',application='Server',controller='resources'*/[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE UsersRole Load (0.0ms)[0m  [1m[34mSELECT "users_roles".* FROM "users_roles" WHERE "users_roles"."user_id" = 1 AND "users_roles"."organization_id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE UsersRole Load (0.0ms)[0m  [1m[34mSELECT "users_roles".* FROM "users_roles" WHERE "users_roles"."user_id" = 1 AND "users_roles"."organization_id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE UsersRole Load (0.0ms)[0m  [1m[34mSELECT "users_roles".* FROM "users_roles" WHERE "users_roles"."user_id" = 1 AND "users_roles"."organization_id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE UsersRole Load (0.0ms)[0m  [1m[34mSELECT "users_roles".* FROM "users_roles" WHERE "users_roles"."user_id" = 1 AND "users_roles"."organization_id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE UsersRole Load (0.0ms)[0m  [1m[34mSELECT "users_roles".* FROM "users_roles" WHERE "users_roles"."user_id" = 1 AND "users_roles"."organization_id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:45:in 'User#role_slug_for_validation'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 9.7ms (15 queries, 10 cached) | GC: 3.0ms)
+
+
+Started POST "/api/auth/logout" for 127.0.0.1 at 2026-08-27 19:38:28 -0400
+Processing by Rhino::AuthController#logout as JSON
+  Parameters: {"route_group" => "default"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."api_token" = '62f82ce4e96d436e24a6caeb38cb0180f47b60bd71887fdbf57426bd7b1fe07b' LIMIT 1 /*action='logout',application='Server',controller='auth'*/[0m
+  ↳ config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+  [1m[36mUser Update (1.5ms)[0m  [1m[33mUPDATE "users" SET "api_token" = 'af66e341f1f97bd3e284e33284cb1a1626d94181419d5be0fc2c826cf99a084f' WHERE "users"."id" = 1 /*action='logout',application='Server',controller='auth'*/[0m
+  ↳ config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 2.2ms (2 queries, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/api/auth/login" for 127.0.0.1 at 2026-08-27 19:38:32 -0400
+Processing by Rhino::AuthController#login as JSON
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "route_group" => "default", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'test@example.com' LIMIT 1 /*action='login',application='Server',controller='auth'*/[0m
+  ↳ config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+Completed 401 Unauthorized in 223ms (Views: 0.3ms | ActiveRecord: 3.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mUser Count (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*application='Server'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+Started GET "/up" for 127.0.0.1 at 2026-08-27 19:38:56 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+  ↳ config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+Processing by Rails::HealthController#show as */*
+  Rendering html template
+  Rendered html template (Duration: 0.0ms | GC: 0.0ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/info/openapi" for 127.0.0.1 at 2026-08-27 19:38:56 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/info/openapi"):
+  
+config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+Started GET "/up" for 127.0.0.1 at 2026-08-27 19:39:15 -0400
+Processing by Rails::HealthController#show as */*
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/signup" for 127.0.0.1 at 2026-08-27 19:39:15 -0400
+Processing by Api::SignupsController#create as */*
+  Parameters: {"signup" => {}}
+  [1m[36mOrganization Load (0.9ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" ORDER BY "organizations"."id" ASC LIMIT 1 /*action='create',application='Server',controller='signups'*/[0m
+  ↳ app/controllers/api/signups_controller.rb:33:in 'Api::SignupsController#default_organization'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='create',application='Server',controller='signups'*/[0m
+  ↳ app/controllers/api/signups_controller.rb:19:in 'Api::SignupsController#create'
+  [1m[36mUser Exists? (4.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = '' LIMIT 1 /*action='create',application='Server',controller='signups'*/[0m
+  ↳ app/controllers/api/signups_controller.rb:19:in 'Api::SignupsController#create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK /*action='create',application='Server',controller='signups'*/[0m
+  ↳ app/controllers/api/signups_controller.rb:19:in 'Api::SignupsController#create'
+Completed 422 Unprocessable Content in 70ms (Views: 0.2ms | ActiveRecord: 13.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+Started GET "/up" for 127.0.0.1 at 2026-08-27 19:43:14 -0400
+Processing by Rails::HealthController#show as */*
+  Rendering html template
+  Rendered html template (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 6.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/info/openapi" for 127.0.0.1 at 2026-08-27 19:43:14 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/info/openapi"):
+  
+config/initializers/spa_fallback.rb:24:in 'SpaFallback#call'
+  [1m[36mActiveRecord::SchemaMigration Load (5.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
