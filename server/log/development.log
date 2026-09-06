@@ -150877,3 +150877,16 @@ Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries
 
   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Server'*/[0m
+  [1m[35m (39.4ms)[0m  [1m[34mSELECT value FROM ar_internal_metadata WHERE key = 'codalio_seed' /*application='Server'*/[0m
+  [1m[36mOrganization Load (2.3ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" WHERE "organizations"."name" = 'Default Organization' LIMIT 1 /*application='Server'*/[0m
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'test@example.com' LIMIT 1 /*application='Server'*/[0m
+  [1m[36mRole Load (1.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = 'end_user' LIMIT 1 /*application='Server'*/[0m
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = 'admin' LIMIT 1 /*application='Server'*/[0m
+  [1m[36mUsersRole Load (4.6ms)[0m  [1m[34mSELECT "users_roles".* FROM "users_roles" WHERE "users_roles"."user_id" = 1 AND "users_roles"."role_id" = 1 AND "users_roles"."organization_id" = 1 LIMIT 1 /*application='Server'*/[0m
+  [1m[36mUsersRole Load (0.7ms)[0m  [1m[34mSELECT "users_roles".* FROM "users_roles" WHERE "users_roles"."user_id" = 1 AND "users_roles"."role_id" = 2 AND "users_roles"."organization_id" = 1 LIMIT 1 /*application='Server'*/[0m
+  [1m[36mTask Load (5.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE (completed_at IS NULL OR completed_at > '2026-06-08 00:00:12.159832') AND "tasks"."title" = 'Sample Task' AND "tasks"."organization_id" = 1 AND "tasks"."status" = 'pending' LIMIT 1 /*application='Server'*/[0m
+  [1m[35m (5.6ms)[0m  [1m[32mINSERT INTO ar_internal_metadata (key, value, created_at, updated_at)
+VALUES ('codalio_seed', 'seeded', now(), now())
+ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_at = now()
+ /*application='Server'*/[0m
