@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 export default function Onboarding() {
   const navigate = useNavigate();
-  const { data } = useModelIndex("user_settings");
-  const settings = (data as any)?.data || [];
-  const updateMutation = useModelUpdate("user_settings");
+  const { data } = useModelIndex("user_setting");
+  const settings = (data as any)?.results || [];
+  const updateMutation = useModelUpdate("user_setting");
 
   const currentSetting = settings[0];
 
@@ -26,7 +26,7 @@ export default function Onboarding() {
     <div className="w-full min-w-0 bg-background overflow-x-hidden p-6 max-w-md mx-auto">
       <Card className="border-border shadow-none">
         <CardHeader>
-          <CardTitle className="text-xl">Welcome to Snap</CardTitle>
+          <CardTitle className="text-xl">Welcome to SnapDo</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <p className="text-sm text-muted-foreground">

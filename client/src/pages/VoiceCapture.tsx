@@ -2,8 +2,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
 import { useModelIndex } from "@rhino-dev/rhino-react";
 
 export default function VoiceCapture() {
-  const { data, isLoading: isPending } = useModelIndex("voice_command_logs");
-  const logs = (data as any)?.data || [];
+  const { data, isLoading: isPending } = useModelIndex("voice_command_log");
+  const logs = (data as any)?.results || [];
 
   return (
     <div className="w-full min-w-0 bg-background overflow-x-hidden space-y-4">

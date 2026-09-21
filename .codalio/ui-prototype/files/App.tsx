@@ -1,45 +1,49 @@
 import "./styles.css";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { SidebarProvider } from "./components/ui/sidebar";
 import Layout from "./components/Layout";
-import Focus from "./pages/Focus";
-import Upcoming from "./pages/Upcoming";
-import Archive from "./pages/Archive";
-import Settings from "./pages/Settings";
-import SettingsVoice from "./pages/SettingsVoice";
-import SettingsTheme from "./pages/SettingsTheme";
-import Signup from "./pages/Signup";
-import Onboarding from "./pages/Onboarding";
+import Inbox from "./pages/Inbox";
+import InboxSnoozed from "./pages/InboxSnoozed";
+import InboxTriage from "./pages/InboxTriage";
+import Analytics from "./pages/Analytics";
+import TeamDelegation from "./pages/TeamDelegation";
 import Dashboard from "./pages/Dashboard";
-import VoiceCapture from "./pages/VoiceCapture";
-import AdminLogin from "./pages/AdminLogin";
-import AdminAnalytics from "./pages/AdminAnalytics";
-import AdminFeatureFlags from "./pages/AdminFeatureFlags";
+import Team from "./pages/Team";
+import AnalyticsActivity from "./pages/AnalyticsActivity";
 import Landing from "./pages/Landing";
+import IntegrationRules from "./pages/IntegrationRules";
+import Onboarding from "./pages/Onboarding";
+import Admin from "./pages/Admin";
+import AdminIntegrations from "./pages/AdminIntegrations";
+import AdminUsers from "./pages/AdminUsers";
+import SettingsIntegrations from "./pages/SettingsIntegrations";
 
 function App() {
   return (
-    <BrowserRouter>
-
-      <Routes>
+    <SidebarProvider>
+      <BrowserRouter>
+        <Routes>
         <Route element={<Layout />}>
-                <Route path="/focus" element={<Focus />} />
-      <Route path="/upcoming" element={<Upcoming />} />
-      <Route path="/archive" element={<Archive />} />
-      <Route path="/settings" element={<Settings />} />
-      <Route path="/settings/voice" element={<SettingsVoice />} />
-      <Route path="/settings/theme" element={<SettingsTheme />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/onboarding" element={<Onboarding />} />
+                <Route path="/inbox" element={<Inbox />} />
+      <Route path="/inbox/snoozed" element={<InboxSnoozed />} />
+      <Route path="/inbox/triage" element={<InboxTriage />} />
+      <Route path="/analytics" element={<Analytics />} />
+      <Route path="/team/delegation" element={<TeamDelegation />} />
       <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/api/v1/voice-capture" element={<VoiceCapture />} />
-      <Route path="/admin/login" element={<AdminLogin />} />
-      <Route path="/admin/analytics" element={<AdminAnalytics />} />
-      <Route path="/admin/feature-flags" element={<AdminFeatureFlags />} />
+      <Route path="/team" element={<Team />} />
+      <Route path="/analytics/activity" element={<AnalyticsActivity />} />
       <Route path="/" element={<Landing />} />
+      <Route path="/settings/integrations/rules" element={<IntegrationRules />} />
+      <Route path="/onboarding" element={<Onboarding />} />
+      <Route path="/admin" element={<Admin />} />
+      <Route path="/admin/integrations" element={<AdminIntegrations />} />
+      <Route path="/admin/users" element={<AdminUsers />} />
+      <Route path="/settings/integrations" element={<SettingsIntegrations />} />
         </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </SidebarProvider>
   );
 }
 

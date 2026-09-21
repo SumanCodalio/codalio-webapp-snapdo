@@ -15,7 +15,7 @@ export default function Landing() {
   const baseOwnerId = useBaseOwnerId();
 
   const { data: indexData, isLoading: isPending } = useModelIndex("tasks");
-  const tasks = (indexData as any)?.data || [];
+  const tasks = (indexData as any)?.data || (indexData as any)?.results || [];
 
   const createMutation = useModelStore("tasks");
   const updateMutation = useModelUpdate("tasks");
@@ -34,13 +34,13 @@ export default function Landing() {
     event.preventDefault();
     const title = draft.trim();
     if (!title) return;
-    // useModelStore posts the object it is given as the record body; wrapping
-    // it in { data: ... } sent the server an empty task, which it rejected.
     createMutation.mutate(
       {
-        title,
-        status: "pending",
-        organization_id: baseOwnerId,
+        data: {
+          title,
+          status: "pending",
+          organization_id: baseOwnerId,
+        },
       },
       {
         onSuccess: () => setDraft(""),

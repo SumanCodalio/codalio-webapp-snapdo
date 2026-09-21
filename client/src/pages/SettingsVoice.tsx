@@ -7,9 +7,9 @@ import { CheckCircle2, ExternalLink, Mic } from "lucide-react";
 import { useModelIndex, useModelUpdate } from "@rhino-dev/rhino-react";
 
 export default function SettingsVoice() {
-  const { data } = useModelIndex("voice_integrations");
-  const integrations = (data as any)?.data || [];
-  const updateMutation = useModelUpdate("voice_integrations");
+  const { data } = useModelIndex("voice_integration");
+  const integrations = (data as any)?.results || [];
+  const updateMutation = useModelUpdate("voice_integration");
   const [tested, setTested] = useState(false);
 
   const siriIntegration = integrations.find((i: any) => i.provider === "siri") || { id: 1, enabled: true };
@@ -61,7 +61,7 @@ export default function SettingsVoice() {
                 <CheckCircle2 className="mr-1 size-3" />
                 Example
               </Badge>
-              <p className="mt-2 text-sm text-foreground">“Add a task to Snap”</p>
+              <p className="mt-2 text-sm text-foreground">“Add a task to SnapDo”</p>
             </div>
             <Button variant="outline" onClick={() => setTested(true)}>
               <ExternalLink className="size-4" />

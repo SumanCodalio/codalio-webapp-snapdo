@@ -5,9 +5,9 @@ import { Label } from "../components/ui/label";
 import { useModelIndex, useModelUpdate } from "@rhino-dev/rhino-react";
 
 export default function SettingsTheme() {
-  const { data } = useModelIndex("user_settings");
-  const settings = (data as any)?.data || [];
-  const updateMutation = useModelUpdate("user_settings");
+  const { data } = useModelIndex("user_setting");
+  const settings = (data as any)?.results || [];
+  const updateMutation = useModelUpdate("user_setting");
 
   const currentSetting = settings[0] || { id: 1, theme: "dark", font_scale: 100, haptic_intensity: "medium" };
 
